@@ -1,0 +1,3 @@
+for rendering images simple form: 
+
+C:\Users\Kiefer\Documents\Visual Studio 2017\Projects\SDL2 gameMenu\SDL2 gameMenu

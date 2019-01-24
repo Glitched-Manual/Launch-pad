@@ -1,15 +1,26 @@
 #include "SDLSetup.h"
 
-CSDLSetup::CSDLSetup()
+CSDL_Setup::CSDL_Setup(bool* quit, int passed_ScreenWidth, int passd_ScreenHeight)
+{
+	//set screen dimensions
+
+	SCREEN_WIDTH = passed_ScreenWidth;
+	SCREEN_HEIGHT = passd_ScreenHeight;
+	//second init main_event
+	
+	pMainEvent = NULL;
+
+	pMainEvent = new SDL_Event();
+
+}
+
+CSDL_Setup::~CSDL_Setup()
 {
 }
 
-CSDLSetup::~CSDLSetup()
+bool CSDL_Setup::createWindow()
 {
-}
-
-bool CSDLSetup::createWindow()
-{
+	pWindow = NULL;
 	pWindow = SDL_CreateWindow("Launch Pad", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
 	if (this->getWindow() == NULL)
@@ -21,8 +32,10 @@ bool CSDLSetup::createWindow()
 	return true;
 
 }
-bool CSDLSetup::createRenderer()
+bool CSDL_Setup::createRenderer()
 {
+	pRenderer = NULL;
+
 	pRenderer = SDL_CreateRenderer(pWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
 	if (this->getRenderer() == NULL)
@@ -34,7 +47,7 @@ bool CSDLSetup::createRenderer()
 	return true;
 }
 
-bool CSDLSetup::init()
+bool CSDL_Setup::init()
 {
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
 	{
@@ -76,6 +89,7 @@ bool CSDLSetup::init()
 					InitSuccess = false;
 				}
 
+				
 				//Initialize SDL_mixer
 				if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
 				{
@@ -96,7 +110,19 @@ bool CSDLSetup::init()
 	return InitSuccess;
 }
 
-void CSDLSetup::endSDL() 
+void CSDL_Setup::Start()
+{
+	SDL_PollEvent(pMainEvent);
+	SDL_RenderClear(pRenderer);
+}
+
+void CSDL_Setup::Finish()
+{
+	SDL_RenderPresent(pRenderer);
+}
+
+
+void CSDL_Setup::endSDL()
 {
 
 	//Quit SDL subsystems

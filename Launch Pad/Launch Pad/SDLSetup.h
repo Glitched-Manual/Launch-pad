@@ -2,63 +2,38 @@
 #include <iostream>
 #include <cstdio>
 #pragma once
-class CSDLSetup
+class CSDL_Setup
 {
 public:
-	CSDLSetup();
-	~CSDLSetup();
-
-	void createWindow();
-	void createRenderer();
-
-	SDL_Window* getWindow() { return pWindow; }
-	SDL_Renderer* getRenderer() { return pRenderer; }
-
-	void clearWindow() { pWindow = NULL; }
-	void clearRenderer() { pRenderer = NULL; }
-
-	bool init();
-private:
-	SDL_Window* pWindow;
-	SDL_Renderer* pRenderer;
-	bool InitSuccess = true;
-
-	//Screen dimensions
-	const int SCREEN_WIDTH = 960;
-	const int SCREEN_HEIGHT = 720;
-
-
-};
-
-#include "stdafx.h"
-#include <iostream>
-#include <cstdio>
-#pragma once
-class CSDLSetup
-{
-public:
-	CSDLSetup();
-	~CSDLSetup();
+	CSDL_Setup(bool* quit, int passed_ScreenWidth,int ScreenHeight);
+	~CSDL_Setup();
 
 	bool createWindow();
 	bool createRenderer();
 
 	SDL_Window* getWindow() { return pWindow; }
 	SDL_Renderer* getRenderer() { return pRenderer; }
+	SDL_Event* getMainEvent() { return pMainEvent; }
 
 	void clearWindow() { pWindow = NULL; }
 	void clearRenderer() { pRenderer = NULL; }
 
 	bool init();
+
+	void Start();
+	void Finish();
+
 	void endSDL();
 private:
 	SDL_Window* pWindow;
 	SDL_Renderer* pRenderer;
+	SDL_Event* pMainEvent;
 	bool InitSuccess = true;
 
 	//Screen dimensions
-	const int SCREEN_WIDTH = 960;
-	const int SCREEN_HEIGHT = 720;
+	
+	 int SCREEN_WIDTH;
+	 int SCREEN_HEIGHT;
 
 
 };
