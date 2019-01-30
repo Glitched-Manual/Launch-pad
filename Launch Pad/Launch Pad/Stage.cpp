@@ -54,7 +54,7 @@ void Stage::SetContentsFromScene()
 	}
 	*/
 }
-//make bool in scene to create texture if not aleady done
+//make bool in scene to create texture if not already done
 void Stage::CreateTextures()
 {
 	std::cout << stage_contents[0].GetContentType() << std::endl;
