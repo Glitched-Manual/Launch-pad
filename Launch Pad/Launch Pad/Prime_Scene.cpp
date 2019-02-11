@@ -71,6 +71,54 @@ void Prime_Scene::clearTempContent()
 
 }
 
+int Prime_Scene::callback(void *NotUsed, int argc, char **argv, char **azColName) 
+{
+	int i;
+	for (i = 0; i < argc; i++) {
+		printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+
+	}
+	printf("\n");
+
+	return 0;
+
+}
+
+void Prime_Scene::LoadFromDatabase()
+{
+	sqlite3* temp_db;
+	char *zErrMsg = 0;
+	int rc;
+
+	const char* sql = "Select * from PrimeContent";
+
+	rc = sqlite3_open("/databases/LaunchPad.db", &temp_db);
+	if (rc) {
+		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(temp_db));
+		sqlite3_close(temp_db);
+
+				
+
+	}
+	else {
+
+		std::cout << "Database was opened " << std::endl;
+
+	}
+	rc = sqlite3_exec(temp_db, sql, this->callback, 0, &zErrMsg);
+	if (rc != SQLITE_OK) {
+
+		fprintf(stderr, "SQL error: %s\n", zErrMsg);
+		sqlite3_free(zErrMsg);
+
+	}
+
+
+	sqlite3_close(temp_db);
+	delete temp_db;
+}
+
+
 void Prime_Scene::LoadManualImageContent()
 {
 	Content temp_content;

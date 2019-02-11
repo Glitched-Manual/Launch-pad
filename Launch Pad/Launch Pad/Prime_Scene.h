@@ -15,7 +15,8 @@ public:
 	void LoadManualImageContent();
 	void LoadGlassImageContent();
 	
-	
+	void LoadFromDatabase();
+	int callback(void *NotUsed, int argc, char **argv, char **azColName);
 private:
 	CSDL_Setup* csdl_setup;
 	SDL_Event* pMainEvent;

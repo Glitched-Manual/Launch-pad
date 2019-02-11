@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include "SDLSetup.h"
+#include "sqlite3.h"
+#include <memory>
 //#include "stdafx.h"
 
 #pragma once
@@ -9,6 +11,8 @@ class Content
 public:
 	Content();
 	~Content();
+
+	
 
 	static int contentCount;
 	//setters

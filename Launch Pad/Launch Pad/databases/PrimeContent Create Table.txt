@@ -1,0 +1,18 @@
+--	Create Table To store PrimeScene Content
+
+CREATE TABLE LaunchPad.PrimeContent(
+
+-- content id primary key
+ContentID VARCHAR(20) PRIMARY KEY,
+-- content type
+
+ContentType VARCHAR(15),
+
+--content path
+
+ContentPath VARCHAR(40),
+
+-- string for content rect use regex or filter x,y,w and h values
+
+ContentRect varchar(20)
+);
