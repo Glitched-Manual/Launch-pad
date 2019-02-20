@@ -19,7 +19,9 @@ public:
 	void SetContentID(std::string newIDValue) { contentID = newIDValue; }
 	void SetContentPath(std::string passed_Path) { contentPath = passed_Path; }
 	void SetContentType(char passed_type);
+	void SetContentType(std::string passed_type);
 	void SetContentRect(int passed_x,int passed_y,int passed_w,int passed_h);
+	void SetContentRect(std::string);
 	//getters
 	
 	std::string GetContentID() { return contentID; }

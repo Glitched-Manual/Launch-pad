@@ -57,72 +57,97 @@ void Stage::SetContentsFromScene()
 //make bool in scene to create texture if not already done
 void Stage::CreateTextures()
 {
-	std::cout << stage_contents[0].GetContentType() << std::endl;
-	
-	if (stage_contents[0].GetContentType() == "texture") {
-		//GetSceneContents()->begin()->GetContentPath()
-		//use get content position to add to ->begin ex: begin +2
-		//used *stage_contents
-		Content content_arg = stage_contents[0];
+	Content* create_temp = new Content;
+	//std::cout << stage_contents[0].GetContentType() << std::endl;
+   if (!(stage_contents.empty()))
+	{
 
-		CTexture temp_ctexture(csdl_setup, content_arg);
+		for (int x = 0; x < stage_contents[0].GetContentCount(); x++) 
+		{
+			if (stage_contents[x].GetContentType() == "texture") {
+				//GetSceneContents()->begin()->GetContentPath()
+				//use get content position to add to ->begin ex: begin +2
+				//used *stage_contents
+				Content content_arg = stage_contents[x];
 
-		stage_textures.push_back(temp_ctexture);
+				CTexture temp_ctexture(csdl_setup, content_arg);
 
-		std::cout << "Texture created" << std::endl;
+				stage_textures.push_back(temp_ctexture);
 
-		AmountOfImages++;
+				std::cout << "Texture created" << std::endl;
+
+				AmountOfImages++;
+			}
+		}
+		/*if (stage_contents[1].GetContentType() == "texture") {
+			//GetSceneContents()->begin()->GetContentPath()
+			//use get content position to add to ->begin ex: begin +2
+			//used *stage_contents
+			Content content_arg = stage_contents[1];
+
+			CTexture temp_ctexture(csdl_setup, content_arg);
+
+			stage_textures.push_back(temp_ctexture);
+
+			std::cout << "Texture created" << std::endl;
+			AmountOfImages++;
+		}
+		else {
+
+			std::cout << "unknown type" << std::endl;
+		}
+		*/
+		
 	}
-	if (stage_contents[1].GetContentType() == "texture") {
-		//GetSceneContents()->begin()->GetContentPath()
-		//use get content position to add to ->begin ex: begin +2
-		//used *stage_contents
-		Content content_arg = stage_contents[1];
-
-		CTexture temp_ctexture(csdl_setup, content_arg);
-
-		stage_textures.push_back(temp_ctexture);
-
-		std::cout << "Texture created" << std::endl;
-		AmountOfImages++;
-	}
+   delete create_temp;
 }
 
 void Stage::RenderScene() 
 {
-	//maybe call a scene method to render stuff
-	try {
-		if (stage_textures[0].GetTextureID() > "")
-		{
-			//check it texture exists
-
-			//reder by address
-			CTexture rendered_texture =  *GetTextureObject(0);
-			rendered_texture.render(20, 20);
-		}
-		if (stage_textures[1].GetTextureID() > "")
-		{
-			//check it texture exists
-
-			//reder by address
-			CTexture rendered_texture = *GetTextureObject(1);
-			rendered_texture.render(200, 20);
-		}
-
-	}
-	catch (...) 
+	if (!(stage_textures.empty())) 
 	{
 
+		for (int i = 0; i < stage_textures.size(); i++)
+		{
+			//maybe call a scene method to render stuff
+			try {
+				if (stage_textures[i].GetTextureID() > "")
+				{
+					//check it texture exists
+					for (int it = 0; it < stage_contents.size(); it++) 
+					{
+					//reder by address
+						if (stage_contents[it].GetContentID() == stage_textures[i].GetTextureID()) 
+						{
+							CTexture rendered_texture = *GetTextureObject(0);
+							rendered_texture.render(stage_contents[it].GetContentRect().x, stage_contents[it].GetContentRect().y);
+						}
+				    }
+				}
+				/*if (stage_textures[1].GetTextureID() > "")
+				{
+					//check it texture exists
 
+					//reder by address
+					CTexture rendered_texture = *GetTextureObject(1);
+					rendered_texture.render(200, 20);
+				}*/
+
+			}
+			catch (...)
+			{
+
+
+			}
+		}
 	}
-	
 }
 
-void Stage::DisplayTextureCount() 
+void Stage::DisplayTextureCount()
 {
 
 	//for loop to search all of contents
-
+	if (!(stage_contents.empty())) {
 	//loop vector begin to end
 	if (stage_textures[0].GetTextureCount() != TextureObjectTracker)
 	{
@@ -133,7 +158,7 @@ void Stage::DisplayTextureCount()
 
 		TextureObjectTracker = stage_textures[0].GetTextureCount();
 	}
-
+}
 }
 
 
@@ -143,16 +168,17 @@ void Stage::DisplayContentCount()
 	//for loop to search all of contents
 
 	//loop vector begin to end
-	if (stage_contents[0].GetContentCount() != ContentObjectTracker)
-	{
+	if (!(stage_contents.empty())) {
+		if (stage_contents[0].GetContentCount() != ContentObjectTracker)
+		{
 
-		std::cout << "stage_contents contains " << stage_contents[0].GetContentCount() << " object(s)" << std::endl;
+			std::cout << "stage_contents contains " << stage_contents[0].GetContentCount() << " object(s)" << std::endl;
 
 
 
-		ContentObjectTracker = stage_contents[0].GetContentCount();
+			ContentObjectTracker = stage_contents[0].GetContentCount();
+		}
 	}
-
 }
 
 

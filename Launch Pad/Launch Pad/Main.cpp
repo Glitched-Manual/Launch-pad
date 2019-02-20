@@ -20,6 +20,7 @@ CMain::~CMain()
 
 int Content::contentCount = -2;
 int CTexture::textureCount = 0;
+
 void CMain::SoftwareLoop()
 {
 	

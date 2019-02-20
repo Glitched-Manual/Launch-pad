@@ -1,0 +1,11 @@
+CREATE TABLE PrimeScenes(
+SceneID varchar(30) PRIMARY KEY,
+SceneContents TEXT
+);
+
+-- "testScene", "manual-img,glass-img"
+
+INSERT INTO PrimeScenes
+Values("testScene", "manual-img,glass-img");
+
+SELECT * FROM PrimeScenes

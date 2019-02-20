@@ -132,6 +132,7 @@
     <ClCompile Include="Prime_Scene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SDLSetup.cpp" />
+    <ClCompile Include="sqlite3.c" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Storage.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Prime_Scene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SDLSetup.h" />
+    <ClInclude Include="sqlite3.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Storage.h" />

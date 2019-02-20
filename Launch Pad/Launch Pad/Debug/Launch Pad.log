@@ -1,3 +1,4 @@
-﻿  Stage.cpp
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\stage.cpp(176): warning C4715: 'Stage::GetTextureObject': not all control paths return a value
-  Launch Pad.vcxproj -> C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Debug\Launch Pad.exe
+﻿  Prime_Scene.cpp
+c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\prime_scene.cpp(61): error C3867: 'Prime_Scene::c_primeSettingCallBack': non-standard syntax; use '&' to create a pointer to member
+c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\prime_scene.cpp(134): error C3867: 'Prime_Scene::c_primePackageCallBack': non-standard syntax; use '&' to create a pointer to member
+c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\prime_scene.cpp(190): error C3867: 'Prime_Scene::c_primeSettingCallBack': non-standard syntax; use '&' to create a pointer to member

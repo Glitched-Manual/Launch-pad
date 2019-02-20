@@ -1,0 +1,10 @@
+--Create data base for Launchpad database
+
+/*CREATE DATABASE*/
+
+.open LaunchPad.db
+
+
+-- Attach to database without the ".db" maybe
+
+ATTACH DATABASE "LaunchPad.db" AS LaunchPad;

@@ -16,3 +16,12 @@ ContentPath VARCHAR(40),
 
 ContentRect varchar(20)
 );
+
+/*
+
+	temp_content->SetContentID("manual-img");
+	temp_content->SetContentPath("Debug/resources/images/solo.jpg");
+	temp_content->SetContentType('t');
+	temp_content->SetContentRect(0, 0, 100, 100);
+	prime_contents.push_back(*temp_content);
+*/
