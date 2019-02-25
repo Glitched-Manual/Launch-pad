@@ -39,9 +39,9 @@ void CMain::SoftwareLoop()
 	while (!quit && pMainEvent->type != SDL_QUIT) {
 		csdl_setup->Start();
 		
-		main_stage->TestContent();
+		//main_stage->TestContent();
 
-		main_stage->RenderScene();
+		//main_stage->RenderScene();
 
 		//render scene and add code for actions
 							   			

@@ -1,0 +1,16 @@
+//database solution for incompatible c++ method to sqlite3
+// sqlite3_exec
+// sqlite3_prepare_v2(), sqlite3_step(), and sqlite3_finalize()
+
+int sqlite3_prepare_v2(
+  sqlite3 *db,            /* Database handle */
+  const char *zSql,       /* SQL statement, UTF-8 encoded */
+  int nByte,              /* Maximum length of zSql in bytes. */
+  sqlite3_stmt **ppStmt,  /* OUT: Statement handle */
+  const char **pzTail     /* OUT: Pointer to unused portion of zSql */
+);
+
+int sqlite3_step(sqlite3_stmt*);
+
+
+int sqlite3_finalize(sqlite3_stmt *pStmt);

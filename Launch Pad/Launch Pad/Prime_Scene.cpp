@@ -4,7 +4,9 @@
 int Prime_Scene::VectorContentStringCount = 0;
 Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup)
 {
-	
+	PrimeDB = new Database("databases/LaunchPad.db");
+
+	databaseopen = false;
 	csdl_setup = passed_setup;
 	pMainEvent = csdl_setup->getMainEvent();
 	pRenderer = csdl_setup->getRenderer();
@@ -31,44 +33,28 @@ void Prime_Scene::SetContentValues()
 
 void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 {
+		//replace with sqlite3 calls
+	    
 
-	//replace with sqlite3 calls
-
-	
-
-
-
-		sqlite3 *temp_db;
-		char *zErrMsg = 0;
-		int rc;
 		// forgot to change SceneID to ContentID
 		std::string setContentCall = "SELECT * FROM PrimeContent WHERE ContentID = \"" + passed_ID + "\"";
 		const char* sql = setContentCall.c_str();
 		// removed "/" in front of "databases"
-		rc = sqlite3_open("databases/LaunchPad.db", &temp_db);
-		if (rc) {
-			fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(temp_db));
-			sqlite3_close(temp_db);
-
-
-
+		if (PrimeDB->GetOpenStatus() == false) 
+		{
+			PrimeDB->open("databases/LaunchPad.db");
 		}
-		else {
-
-			std::cout << "Database was opened " << std::endl;
-
-		}
-		rc = sqlite3_exec(temp_db, sql, (this->c_primeSettingCallBack), 0, &zErrMsg);
-		if (rc != SQLITE_OK) {
-
-			fprintf(stderr, "SQL error: %s\n", zErrMsg);
-			sqlite3_free(zErrMsg);
-
+		
+		//do queries returns vector of vectors
+		
+		std::vector<std::vector<std::string> > result = PrimeDB->query(setContentCall);
+		for (std::vector<std::vector<std::string> >::iterator it = result.begin(); it < result.end(); ++it)
+		{
+			std::vector<std::string> row = *it;
+			std::cout << "Values: (A=" << row.at(0) << ", B=" << row.at(1) << ")" << std::endl;
 		}
 
-
-		sqlite3_close(temp_db);
-
+		PrimeDB->close();
 		std::cout << "LoadContentValuesByID database closed" << std::endl;
 	
 }
@@ -105,45 +91,26 @@ void Prime_Scene::clearTempContent()
 
 void Prime_Scene::LoadContentPackage(std::string passedPackageID)
 {
-	sqlite3 *temp_db;
-	char *zErrMsg = 0;
-	int rc;
+	   
 
 	std::string PackageCall = "SELECT * FROM PrimeScenes WHERE SceneID = \"" + passedPackageID + "\"";
-	const char* sql = PackageCall.c_str();
+	
 	// removed "/" in front of "databases"
 
 	//check if open?
-	rc = sqlite3_open("databases/LaunchPad.db", &temp_db);
-	if (rc) {
-		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(temp_db));
-		sqlite3_close(temp_db);
 
-
-
-	}
-	else {
-
-		std::cout << "Database was opened " << std::endl;
-
+	//use open method check if  database is open already
+	if (PrimeDB->GetOpenStatus() == false)
+	{
+		PrimeDB->open("databases/LaunchPad.db");
 	}
 
+	//do queries returns vector of vectors
 	
-// try the following line instead
-// int (A::*pf3)() = &A::func;
+
+	PrimeDB->close();
 	
-	rc = sqlite3_exec(temp_db, sql, c_primePackageCallBack, 0, &zErrMsg);
-	if (rc != SQLITE_OK) {
-
-		fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		sqlite3_free(zErrMsg);
-
-	}
-
-
-	sqlite3_close(temp_db);
-
-
+	
 }
 
 void Prime_Scene::PackageLoader(std::vector<std::string> passedStringPackage)
@@ -166,37 +133,20 @@ void Prime_Scene::PackageLoader(std::vector<std::string> passedStringPackage)
 // make bool?
 void Prime_Scene::LoadFromDatabase(std::string passedID)
 {
-	sqlite3 *temp_db;
-	char *zErrMsg = 0;
-	int rc;
-
+	
 	std::string call = "SELECT * FROM PrimeContent WHERE ContentID = \"" + passedID + "\"";
 
-	const char* sql = call.c_str();
+	
 	// removed "/" in front of "databases"
-	rc = sqlite3_open("databases/LaunchPad.db", &temp_db);
-	if (rc) {
-		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(temp_db));
-		sqlite3_close(temp_db);
-
-
-
-	}
-	else {
-
-		std::cout << "Database was opened " << std::endl;
-
-	}
-	rc = sqlite3_exec(temp_db, sql,(this->c_primeSettingCallBack), 0, &zErrMsg);
-	if (rc != SQLITE_OK) {
-
-		fprintf(stderr, "SQL error: %s\n", zErrMsg);
-		sqlite3_free(zErrMsg);
-
+	// check rc = sqlite3_open("databases/LaunchPad.db", &temp_db);
+	if (PrimeDB->GetOpenStatus() == false)
+	{
+		PrimeDB->open("databases/LaunchPad.db");
 	}
 
+	//do queries
 
-	sqlite3_close(temp_db);
+	PrimeDB->close();
 
 
 }
@@ -215,7 +165,7 @@ int Prime_Scene::callback(int argc, char **argv, char **azColName)
 
 	return 0;
 }
-
+// needs to be edited
 int Prime_Scene::SettingCallback(int argc, char **argv, char **azColName)
 {
 	int i;

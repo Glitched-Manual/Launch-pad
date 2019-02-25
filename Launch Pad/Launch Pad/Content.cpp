@@ -20,13 +20,13 @@ void Content::SetContentType(char passed_type) {
 	try {
 		passed_type = tolower(passed_type);
 
-		if (passed_type == 'i' | passed_type == 't')
+		if ((passed_type == 'i') |( passed_type == 't'))
 		{
 
 			contentType = "texture";
 
 		}
-		else if (passed_type == 'a' | passed_type == 's')
+		else if ((passed_type == 'a' )| (passed_type == 's'))
 		{
 			contentType = "audio";
 
@@ -50,13 +50,13 @@ void Content::SetContentType(std::string passed_type)
 		for (std::string::size_type i = 0; i < passed_type.length(); ++i)
 			passed_type[i] = std::tolower(passed_type[i], loc);
 
-		if (passed_type == "image" | passed_type == "texture")
+		if ((passed_type == "image" )| (passed_type == "texture"))
 		{
 
 			contentType = "texture";
 
 		}
-		else if (passed_type == "audio" | passed_type == "sound")
+		else if ((passed_type == "audio") | (passed_type == "sound"))
 		{
 			contentType = "audio";
 

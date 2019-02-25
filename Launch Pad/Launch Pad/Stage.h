@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <vector>
 #include <iterator>
+#include "Database.h"
 #pragma once
 class Stage
 {
@@ -22,7 +23,7 @@ public:
 	CTexture* GetTextureObject(int slot);
 
 	Scene* GetCurrentScene() { return current_scene; }
-
+		
 	void CreateTextures();
 	void RenderScene();
 	void TestContent();
@@ -44,5 +45,6 @@ private:
 	CSDL_Setup* csdl_setup;
 	SDL_Renderer* pRenderer;
 	SDL_Event* pMainEvent;
+	//Database* StageDatabase; //not sure it to keep here or not
 };
 

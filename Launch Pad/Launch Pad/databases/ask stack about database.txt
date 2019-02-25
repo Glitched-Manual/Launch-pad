@@ -1,0 +1,17 @@
+//stack exchange question on the c++ to c issue in launchpad
+
+What is wrong?
+
+I have been working on a C++ SDL2 GUI framework and have had an issue with making and sqlite3 query
+here is a part of the problem.
+
+Compiler Error C2276
+mircosoft site reference: https://docs.microsoft.com/en-us/cpp/error-messages/compiler-errors-1/compiler-error-c2276?f1url=https%3A%2F%2Fmsdn.microsoft.com%2Fquery%2Fdev15.query%3FappId%3DDev15IDEF1%26l%3DEN-US%26k%3Dk(C2276)%26rd%3Dtrue&view=vs-2017
+
+- show Prime_scene class only with callback method
+
+- What the static method looks like
+
+- why the static method does not work 
+
+The static function leaves the instance of the current object and loses access to push values to the content vector

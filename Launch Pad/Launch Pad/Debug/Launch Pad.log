@@ -1,4 +1,1 @@
-﻿  Prime_Scene.cpp
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\prime_scene.cpp(61): error C3867: 'Prime_Scene::c_primeSettingCallBack': non-standard syntax; use '&' to create a pointer to member
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\prime_scene.cpp(134): error C3867: 'Prime_Scene::c_primePackageCallBack': non-standard syntax; use '&' to create a pointer to member
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\prime_scene.cpp(190): error C3867: 'Prime_Scene::c_primeSettingCallBack': non-standard syntax; use '&' to create a pointer to member
+﻿LINK : fatal error LNK1104: cannot open file 'C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Debug\Launch Pad.exe'
