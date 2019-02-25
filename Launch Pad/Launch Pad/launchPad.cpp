@@ -6,7 +6,7 @@ int main(int argc, char* args[])
 {
 	CMain* cmain = new CMain(960, 720);
 	
-	Prime_Scene pScene(cmain->GetSetup());
+	//Prime_Scene pScene(cmain->GetSetup());
 
 	
 

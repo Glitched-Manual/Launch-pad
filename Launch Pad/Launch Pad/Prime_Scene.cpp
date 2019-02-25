@@ -10,13 +10,15 @@ Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup)
 	csdl_setup = passed_setup;
 	pMainEvent = csdl_setup->getMainEvent();
 	pRenderer = csdl_setup->getRenderer();
-
+	
 	std::cout << "Prime_Scene obj created" << std::endl;
 	//LoadContentValuesByID("manual");
 	//LoadContentValuesByID("glass");
 
+
 	LoadContentPackage("testScene");
-	//LoadFromDatabase("manual-img");
+	std::cout << "package loaded" << std::endl;
+		//LoadFromDatabase("manual-img");
 
 }
 
@@ -51,7 +53,7 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 		for (std::vector<std::vector<std::string> >::iterator it = result.begin(); it < result.end(); ++it)
 		{
 			std::vector<std::string> row = *it;
-			std::cout << "Values: (A=" << row.at(0) << ", B=" << row.at(1) << ")" << std::endl;
+			std::cout << "Values: " << row.at(0) << ", B= " << row.at(1) << ")" << std::endl;
 		}
 
 		PrimeDB->close();
@@ -106,9 +108,20 @@ void Prime_Scene::LoadContentPackage(std::string passedPackageID)
 	}
 
 	//do queries returns vector of vectors
-	
+	std::vector<std::vector<std::string> > result = PrimeDB->query(PackageCall);
+	for (std::vector<std::vector<std::string> >::iterator it = result.begin(); it < result.end(); ++it)
+	{
+		std::vector<std::string> row = *it;
+		std::cout << "Row 0 values : " << row.at(0) << ", Row 1 = " << row.at(1) << std::endl;
+
+		//std::string databasesList = row.at(1);
+		//std::vector<string> filteredContents = FilterSceneContents(databasesList); //returns vector
+		//loop load filteredContents
+		
+	}
 
 	PrimeDB->close();
+	
 	
 	
 }
@@ -230,7 +243,7 @@ int Prime_Scene::PackageCallback(int argc, char **argv, char **azColName)
 {
 	int i;
 	
-	std::vector<std::string> filteredContentList;
+	std::vector<std::string> *filteredContentList = new std::vector<std::string>;
 	
 	std::string col_name;
 	for (i = 0; i < argc; i++)
@@ -249,14 +262,15 @@ int Prime_Scene::PackageCallback(int argc, char **argv, char **azColName)
 
 			std::cout << "datalist = " << databasesList << std::endl;
 
-			filteredContentList = FilterSceneContents(databasesList);
+			*filteredContentList = FilterSceneContents(databasesList);
 		}
 
 	}
 
 	//set and push Content list 
-	PackageLoader(filteredContentList);
+	PackageLoader(*filteredContentList);
 
+	delete filteredContentList;
 	std::cout << "PackageLoader Called" << std::endl;
 	
 	//create setting callback
