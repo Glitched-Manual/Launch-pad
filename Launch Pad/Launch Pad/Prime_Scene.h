@@ -9,7 +9,7 @@
 class Prime_Scene :	public Scene
 {
 public:
-	Prime_Scene(CSDL_Setup* passed_setup);
+	Prime_Scene(CSDL_Setup* passed_setup,Database* passed_database);
 	~Prime_Scene();
 	void SetContentValues();
 	void AddContents(Content passed_Content);

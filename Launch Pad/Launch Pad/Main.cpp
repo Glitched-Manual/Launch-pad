@@ -10,12 +10,14 @@ CMain::CMain(int passed_ScreenWidth, int passed_ScreenHeight)
 	csdl_setup = new CSDL_Setup(&quit, ScreenWidth, ScreenHeight);
 	pMainEvent = csdl_setup->getMainEvent();
 	pRenderer = csdl_setup->getRenderer();
-	main_stage = new Stage(GetSetup());
+	mainDatabase = new Database("databases/LaunchPad.db");
+	main_stage = new Stage(GetSetup(), GetMainDatabase());
 }
 
 
 CMain::~CMain()
 {
+	mainDatabase->close();
 }
 
 int Content::contentCount = -2;
@@ -41,7 +43,7 @@ void CMain::SoftwareLoop()
 		
 		//main_stage->TestContent();
 
-		//main_stage->RenderScene();
+		main_stage->RenderScene();
 
 		//render scene and add code for actions
 							   			

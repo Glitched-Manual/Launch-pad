@@ -9,6 +9,7 @@ public:
 
 	CSDL_Setup* GetSetup() { return csdl_setup; }
 	Stage* GetMainStage() { return main_stage; }
+	Database* GetMainDatabase() { return mainDatabase; }
 	void SoftwareLoop();
 	//add getmouse position method
 private:
@@ -17,6 +18,7 @@ private:
 	SDL_Event* pMainEvent;
 	Stage* main_stage;
 	SDL_Renderer* pRenderer;
+	Database* mainDatabase;
 	//Screen dimensions
 	int ScreenWidth;
 	int ScreenHeight;

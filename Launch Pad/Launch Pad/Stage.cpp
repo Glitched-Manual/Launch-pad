@@ -2,9 +2,10 @@
 
 
 
-Stage::Stage(CSDL_Setup* passed_setup)
+Stage::Stage(CSDL_Setup* passed_setup, Database* passed_database)
 {
 	csdl_setup = passed_setup;
+	StageDatabase = passed_database;
 	pMainEvent = csdl_setup->getMainEvent();
 	pRenderer = csdl_setup->getRenderer();
 
@@ -28,13 +29,16 @@ void Stage::LoadSceneBySceneName(std::string passed_scene_name)
 {
 	//pass text as arguement
 
+	
+
 	if (passed_scene_name == "prime_Scene")
 	{
 		
 
-		current_scene = new Prime_Scene(csdl_setup);
+		current_scene = new Prime_Scene(csdl_setup, StageDatabase);
 
 		//risky use try catch
+		//check if empty
 		SetContentsFromScene();
 	}
 
@@ -61,8 +65,8 @@ void Stage::CreateTextures()
 	//std::cout << stage_contents[0].GetContentType() << std::endl;
    if (!(stage_contents.empty()))
 	{
-
-		for (int x = 0; x < stage_contents[0].GetContentCount(); x++) 
+	   //changed from contentcount to size() way better
+		for (int x = 0; x < stage_contents.size(); x++) 
 		{
 			if (stage_contents[x].GetContentType() == "texture") {
 				//GetSceneContents()->begin()->GetContentPath()
@@ -78,6 +82,10 @@ void Stage::CreateTextures()
 
 				AmountOfImages++;
 			}
+			else {
+
+
+			}
 		}
 		/*if (stage_contents[1].GetContentType() == "texture") {
 			//GetSceneContents()->begin()->GetContentPath()
@@ -92,6 +100,7 @@ void Stage::CreateTextures()
 			std::cout << "Texture created" << std::endl;
 			AmountOfImages++;
 		}
+
 		else {
 
 			std::cout << "unknown type" << std::endl;
@@ -119,7 +128,7 @@ void Stage::RenderScene()
 					//reder by address
 						if (stage_contents[it].GetContentID() == stage_textures[i].GetTextureID()) 
 						{
-							CTexture rendered_texture = *GetTextureObject(0);
+							CTexture rendered_texture = *GetTextureObject(it);
 							rendered_texture.render(stage_contents[it].GetContentRect().x, stage_contents[it].GetContentRect().y);
 						}
 				    }
@@ -142,7 +151,7 @@ void Stage::RenderScene()
 		}
 	}
 }
-
+//delete this
 void Stage::DisplayTextureCount()
 {
 
@@ -161,7 +170,7 @@ void Stage::DisplayTextureCount()
 }
 }
 
-
+//delete this use size() from vector
 void Stage::DisplayContentCount() 
 {
 
@@ -192,7 +201,7 @@ CTexture* Stage::GetTextureObject(int passed_slot)
 {
 
 	//only allows images to be called?
-	if (passed_slot < AmountOfImages)
+	if (passed_slot < stage_textures.size())
 	{ 
 		return &stage_textures[passed_slot];
 

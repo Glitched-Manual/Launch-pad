@@ -2,9 +2,9 @@
 #include <iostream>
 #include "sqlite3.h"
 int Prime_Scene::VectorContentStringCount = 0;
-Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup)
+Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup, Database* passed_database)
 {
-	PrimeDB = new Database("databases/LaunchPad.db");
+	PrimeDB = passed_database;
 
 	databaseopen = false;
 	csdl_setup = passed_setup;
@@ -15,7 +15,7 @@ Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup)
 	//LoadContentValuesByID("manual");
 	//LoadContentValuesByID("glass");
 
-
+     // LoadContentValuesByID("manual-img");
 	LoadContentPackage("testScene");
 	std::cout << "package loaded" << std::endl;
 		//LoadFromDatabase("manual-img");
@@ -39,25 +39,70 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 	    
 
 		// forgot to change SceneID to ContentID
-		std::string setContentCall = "SELECT * FROM PrimeContent WHERE ContentID = \"" + passed_ID + "\"";
-		const char* sql = setContentCall.c_str();
+		std::string setContentCall = "SELECT * FROM PrimeContent WHERE ContentID = \"" + passed_ID + "\";";
+		//const char* sql = setContentCall.c_str();
 		// removed "/" in front of "databases"
-		if (PrimeDB->GetOpenStatus() == false) 
-		{
-			PrimeDB->open("databases/LaunchPad.db");
-		}
-		
+		Content* tempContent = new Content;
+		std::string column_name;
 		//do queries returns vector of vectors
-		
+		//clear previous list
+		PrimeDB->ClearColumnlist();
 		std::vector<std::vector<std::string> > result = PrimeDB->query(setContentCall);
-		for (std::vector<std::vector<std::string> >::iterator it = result.begin(); it < result.end(); ++it)
+		if (!(result.empty())) 
 		{
-			std::vector<std::string> row = *it;
-			std::cout << "Values: " << row.at(0) << ", B= " << row.at(1) << ")" << std::endl;
-		}
 
-		PrimeDB->close();
-		std::cout << "LoadContentValuesByID database closed" << std::endl;
+
+			
+			for (std::vector<std::vector<std::string> >::iterator it = result.begin(); it < result.end(); ++it)
+			{
+				std::vector<std::string> row = *it;
+				//no value error row.at(1)
+				for (int count = 0; count < row.size(); count++)
+				{
+					std::cout << "Column: " << PrimeDB->GetColumnList().at(count) <<std::endl;
+					std::cout << "Values: " << row.at(count) << std::endl;
+					//use content setting algorythm 
+
+					column_name = PrimeDB->GetColumnList().at(count);
+
+					if (column_name == "ContentID") {
+
+						// add if null case
+						tempContent->SetContentID(row.at(count));
+						std::cout << "Content ID set" << std::endl;
+					}
+					else if (column_name == "ContentType")
+					{
+						tempContent->SetContentType(row.at(count));
+
+					}
+
+					else if (column_name == "ContentPath")
+					{
+						tempContent->SetContentPath(row.at(count));
+
+					}
+					else if (column_name == "ContentRect")
+					{
+						tempContent->SetContentRect(row.at(count));
+						//tempContent->SetContentRect(0,0,0,0);
+						std::cout << "Content Rect set" << std::endl;
+					}
+
+					else
+					{
+						
+						std::cout << "Error: SettingCallback unknown column : " << column_name << std::endl;
+
+					}
+				}
+			
+			}
+		}
+		//clears column name list
+		prime_contents.push_back(*tempContent);
+		delete tempContent;
+		std::cout << "LoadContentValuesByID: database closed" << std::endl;
 	
 }
 
@@ -95,17 +140,14 @@ void Prime_Scene::LoadContentPackage(std::string passedPackageID)
 {
 	   
 
-	std::string PackageCall = "SELECT * FROM PrimeScenes WHERE SceneID = \"" + passedPackageID + "\"";
-	
+	std::string PackageCall = "SELECT * FROM PrimeScenes WHERE SceneID = \"" + passedPackageID + "\";";
+	std::string databasesList;
 	// removed "/" in front of "databases"
 
 	//check if open?
 
 	//use open method check if  database is open already
-	if (PrimeDB->GetOpenStatus() == false)
-	{
-		PrimeDB->open("databases/LaunchPad.db");
-	}
+	
 
 	//do queries returns vector of vectors
 	std::vector<std::vector<std::string> > result = PrimeDB->query(PackageCall);
@@ -114,16 +156,23 @@ void Prime_Scene::LoadContentPackage(std::string passedPackageID)
 		std::vector<std::string> row = *it;
 		std::cout << "Row 0 values : " << row.at(0) << ", Row 1 = " << row.at(1) << std::endl;
 
-		//std::string databasesList = row.at(1);
-		//std::vector<string> filteredContents = FilterSceneContents(databasesList); //returns vector
+		databasesList = row.at(1);
+		
 		//loop load filteredContents
 		
 	}
 
-	PrimeDB->close();
 	
 	
+	std::vector<std::string> *filteredContents = new std::vector<std::string>;
+		
+		*filteredContents = FilterSceneContents(databasesList); //returns vector
 	
+	
+
+		PackageLoader(*filteredContents);
+
+		delete filteredContents;
 }
 
 void Prime_Scene::PackageLoader(std::vector<std::string> passedStringPackage)
@@ -133,10 +182,18 @@ void Prime_Scene::PackageLoader(std::vector<std::string> passedStringPackage)
 	Content* tempcontent = new Content;
 	
 	//lol forgot it was empty
-	for (int i = 0; i < VectorContentStringCount;i++)
+	if (!(passedStringPackage.empty()))
 	{
-		LoadContentValuesByID(passedStringPackage[i]);
-		
+
+		for (int i = 0; i < passedStringPackage.size(); i++)
+		{
+			LoadContentValuesByID(passedStringPackage[i]);
+
+		}
+	}
+	else
+	{
+		std::cout << "Prime_Scene::PackageLoader error : passedStringPackage is empty" << std::endl;
 	}
 	delete tempcontent;
 	std::cout << "PackageLoader end of method" << std::endl;
@@ -147,19 +204,14 @@ void Prime_Scene::PackageLoader(std::vector<std::string> passedStringPackage)
 void Prime_Scene::LoadFromDatabase(std::string passedID)
 {
 	
-	std::string call = "SELECT * FROM PrimeContent WHERE ContentID = \"" + passedID + "\"";
+	std::string call = "SELECT * FROM PrimeContent WHERE ContentID = \"" + passedID + "\";";
 
 	
 	// removed "/" in front of "databases"
 	// check rc = sqlite3_open("databases/LaunchPad.db", &temp_db);
-	if (PrimeDB->GetOpenStatus() == false)
-	{
-		PrimeDB->open("databases/LaunchPad.db");
-	}
+	
 
 	//do queries
-
-	PrimeDB->close();
 
 
 }

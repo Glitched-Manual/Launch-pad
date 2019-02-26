@@ -10,7 +10,7 @@
 class Stage
 {
 public:
-	Stage(CSDL_Setup* passed_setup);
+	Stage(CSDL_Setup* passed_setup,Database* passed_database);
 	~Stage();
 
 	// texture load textures audio loads audio
@@ -45,6 +45,6 @@ private:
 	CSDL_Setup* csdl_setup;
 	SDL_Renderer* pRenderer;
 	SDL_Event* pMainEvent;
-	//Database* StageDatabase; //not sure it to keep here or not
+	Database* StageDatabase; //not sure it to keep here or not
 };
 

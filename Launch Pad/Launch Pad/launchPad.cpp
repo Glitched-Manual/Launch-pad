@@ -17,7 +17,7 @@ int main(int argc, char* args[])
 
 	//std::cout << cmain->GetMainStage()->GetCurrentScene()->GetSceneContents()->begin()->GetContentPath() << std::endl; //failed
 
-	//cmain->SoftwareLoop();
+	cmain->SoftwareLoop();
 
 	delete cmain;
 
