@@ -61,12 +61,19 @@ void CTexture::SetTextureID()
 
 }
 
-void CTexture::render(int x, int y, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
+void CTexture::render(int x, int y, int w, int h, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip)
 {
+	SDL_Rect renderQuad;
 	//Set rendering space and render to screen
 	//get width and Hieght for context
-	SDL_Rect renderQuad = { x, y, 100, 100 };
-
+	if ((w == NULL) | (h == NULL)) 
+	{
+		renderQuad = { x, y, 100, 100 };
+	}
+	else
+	{
+	    renderQuad = { x, y, w, h };
+	}
 	//clip may be used for animating
 	//Set clip rendering dimensions
 	if (clip != NULL)

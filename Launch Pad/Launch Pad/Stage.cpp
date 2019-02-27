@@ -129,18 +129,11 @@ void Stage::RenderScene()
 						if (stage_contents[it].GetContentID() == stage_textures[i].GetTextureID()) 
 						{
 							CTexture rendered_texture = *GetTextureObject(it);
-							rendered_texture.render(stage_contents[it].GetContentRect().x, stage_contents[it].GetContentRect().y);
+							rendered_texture.render(stage_contents[it].GetContentRect().x, stage_contents[it].GetContentRect().y, stage_contents[it].GetContentRect().w, stage_contents[it].GetContentRect().h);
 						}
 				    }
 				}
-				/*if (stage_textures[1].GetTextureID() > "")
-				{
-					//check it texture exists
-
-					//reder by address
-					CTexture rendered_texture = *GetTextureObject(1);
-					rendered_texture.render(200, 20);
-				}*/
+				
 
 			}
 			catch (...)
@@ -190,7 +183,7 @@ void Stage::DisplayContentCount()
 	}
 }
 
-
+//erase this too
 void Stage::TestContent()
 {
 	DisplayContentCount();
@@ -204,8 +197,7 @@ CTexture* Stage::GetTextureObject(int passed_slot)
 	if (passed_slot < stage_textures.size())
 	{ 
 		return &stage_textures[passed_slot];
-
-
+		
 	}
 
 }

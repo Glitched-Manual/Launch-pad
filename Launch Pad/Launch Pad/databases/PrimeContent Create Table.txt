@@ -25,3 +25,9 @@ ContentRect varchar(20)
 	temp_content->SetContentRect(0, 0, 100, 100);
 	prime_contents.push_back(*temp_content);
 */
+
+--update rect
+UPDATE PrimeContent
+SET ContentRect='x = 200; y = 0; w = 100; h= 100;'
+WHERE ContentID='glass-img';
+--if where condition is forgotten all records will be changed

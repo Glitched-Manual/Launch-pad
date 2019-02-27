@@ -1,8 +1,2 @@
-﻿  Main.cpp
-  Stage.cpp
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\stage.cpp(69): warning C4018: '<': signed/unsigned mismatch
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\stage.cpp(119): warning C4018: '<': signed/unsigned mismatch
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\stage.cpp(126): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\stage.cpp(211): warning C4715: 'Stage::GetTextureObject': not all control paths return a value
+﻿  Texture.cpp
   Launch Pad.vcxproj -> C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Debug\Launch Pad.exe
