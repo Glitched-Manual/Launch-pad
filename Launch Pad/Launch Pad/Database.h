@@ -5,7 +5,7 @@
 #include <vector>
 #include <cstring>
 #include <cstdlib>
-#include "sqlite3.h"
+#include "sqlite3.h" //windows stacic lib
 
 //Do not close until the program needs to be closed
 

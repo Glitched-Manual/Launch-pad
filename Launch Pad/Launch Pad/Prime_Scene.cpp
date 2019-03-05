@@ -57,7 +57,7 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 			{
 				std::vector<std::string> row = *it;
 				//no value error row.at(1)
-				for (int count = 0; count < row.size(); count++)
+				for (unsigned int count = 0; count < row.size(); count++)
 				{
 					std::cout << "Column: " << PrimeDB->GetColumnList().at(count) <<std::endl;
 					std::cout << "Values: " << row.at(count) << std::endl;
@@ -185,7 +185,7 @@ void Prime_Scene::PackageLoader(std::vector<std::string> passedStringPackage)
 	if (!(passedStringPackage.empty()))
 	{
 
-		for (int i = 0; i < passedStringPackage.size(); i++)
+		for (unsigned int i = 0; i < passedStringPackage.size(); i++)
 		{
 			LoadContentValuesByID(passedStringPackage[i]);
 

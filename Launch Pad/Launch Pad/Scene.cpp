@@ -35,7 +35,7 @@ void Scene::AddContents(Content passed_Content)
 		
 }
 */
-
+/*
 Content Scene::GetContentByID(std::string passed_string)
 
 {   // int value for changing iteration
@@ -57,6 +57,7 @@ Content Scene::GetContentByID(std::string passed_string)
 	}
 
 }
+*/
 /*
 
 for ( int i=0 ; i<some_variable ; i++ )

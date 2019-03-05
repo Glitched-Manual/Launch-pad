@@ -104,7 +104,7 @@ void Content::SetContentRect(std::string passed_string_rect)
 
 		std::string temp_value;
 
-		for (int i = 0; i <= passed_string_rect.length(); i++)
+		for (unsigned int i = 0; i <= passed_string_rect.length(); i++)
 		{
 			if (passed_string_rect[i] == 'x')
 			{

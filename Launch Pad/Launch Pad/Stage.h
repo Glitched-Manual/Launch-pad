@@ -20,7 +20,7 @@ public:
 
 	void SetContentsFromScene();
 
-	CTexture* GetTextureObject(int slot);
+	CTexture* GetTextureObject(unsigned int slot);
 
 	Scene* GetCurrentScene() { return current_scene; }
 		

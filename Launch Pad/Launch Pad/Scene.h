@@ -16,7 +16,7 @@ public:
 	// make various scene object or make scene virual
 
 	
-	virtual Content GetContentByID(std::string passed_string);
+	//virtual Content GetContentByID(std::string passed_string);
 
 	virtual void AddContents(Content passed_Content) = 0;
 

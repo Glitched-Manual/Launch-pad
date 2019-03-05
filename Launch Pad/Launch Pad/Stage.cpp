@@ -66,7 +66,7 @@ void Stage::CreateTextures()
    if (!(stage_contents.empty()))
 	{
 	   //changed from contentcount to size() way better
-		for (int x = 0; x < stage_contents.size(); x++) 
+		for (unsigned int x = 0; x < stage_contents.size(); x++) 
 		{
 			if (stage_contents[x].GetContentType() == "texture") {
 				//GetSceneContents()->begin()->GetContentPath()
@@ -116,14 +116,14 @@ void Stage::RenderScene()
 	if (!(stage_textures.empty())) 
 	{
 
-		for (int i = 0; i < stage_textures.size(); i++)
+		for (unsigned int i = 0; i < stage_textures.size(); i++)
 		{
 			//maybe call a scene method to render stuff
 			try {
 				if (stage_textures[i].GetTextureID() > "")
 				{
 					//check it texture exists
-					for (int it = 0; it < stage_contents.size(); it++) 
+					for (unsigned int it = 0; it < stage_contents.size(); it++)
 					{
 					//reder by address
 						if (stage_contents[it].GetContentID() == stage_textures[i].GetTextureID()) 
@@ -190,7 +190,7 @@ void Stage::TestContent()
 	DisplayTextureCount();
 }
 
-CTexture* Stage::GetTextureObject(int passed_slot)
+CTexture* Stage::GetTextureObject(unsigned int passed_slot)
 {
 
 	//only allows images to be called?
@@ -199,5 +199,6 @@ CTexture* Stage::GetTextureObject(int passed_slot)
 		return &stage_textures[passed_slot];
 		
 	}
+
 
 }

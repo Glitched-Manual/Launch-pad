@@ -15,3 +15,13 @@ void CAudio::LoadAudio()
 {
 
 }
+
+void CAudio::LoadMusic()
+{
+
+}
+
+void CAudio::LoadSFX()
+{
+
+}
