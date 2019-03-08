@@ -1,12 +1,15 @@
+#pragma once
 #include "SDLSetup.h"
 #include "CoreScene.h"
 #include "Texture.h"
-//#include "CTexture.h"
 #include <algorithm>
 #include <vector>
 #include <iterator>
 #include "Database.h"
-#pragma once
+#include "Audio.h"
+
+#ifndef STAGE_H
+#define STAGE_H
 class Stage
 {
 public:
@@ -23,7 +26,8 @@ public:
 	CTexture* GetTextureObject(unsigned int slot);
 
 	Scene* GetCurrentScene() { return current_scene; }
-		
+	CAudio* GetStageAudio() { return stage_audio; }
+
 	void CreateTextures();
 	void RenderScene();
 	void TestContent();
@@ -40,7 +44,7 @@ private:
 	int AmountOfImages;
 	std::vector<Content> stage_contents;
 	std::vector<CTexture> stage_textures;
-	//int loop_iter;
+	CAudio* stage_audio;
 	Scene* current_scene;
 	CSDL_Setup* csdl_setup;
 	SDL_Renderer* pRenderer;
@@ -48,3 +52,4 @@ private:
 	Database* StageDatabase; //not sure it to keep here or not
 };
 
+#endif // STAGE_H

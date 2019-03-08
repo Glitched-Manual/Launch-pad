@@ -6,6 +6,7 @@ Stage::Stage(CSDL_Setup* passed_setup, Database* passed_database)
 {
 	csdl_setup = passed_setup;
 	StageDatabase = passed_database;
+	stage_audio = new CAudio; // start fresh
 	pMainEvent = csdl_setup->getMainEvent();
 	pRenderer = csdl_setup->getRenderer();
 
@@ -81,6 +82,10 @@ void Stage::CreateTextures()
 				std::cout << "Texture created" << std::endl;
 
 				AmountOfImages++;
+			}
+			else if ((stage_contents[x].GetContentType() == "audio")|(stage_contents[x].GetContentType() == "sfx"))
+			{
+				stage_audio->LoadAudio(stage_contents[x]);
 			}
 			else {
 

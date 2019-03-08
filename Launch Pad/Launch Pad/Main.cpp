@@ -45,6 +45,7 @@ void CMain::SoftwareLoop()
 
 		main_stage->RenderScene();
 
+
 		//render scene and add code for actions
 							   			
 		//SDL_GetMouseState(&MouseX, &MouseY);
@@ -56,7 +57,9 @@ void CMain::SoftwareLoop()
 
 		//Stage->DrawFront();
 		//Stage->Update();
-		
+		if (pMainEvent->type == 'k') {
+			main_stage->GetStageAudio()->PlayMusicByID("test");
+		}
 		
 		csdl_setup->Finish();
 	}

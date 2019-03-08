@@ -26,13 +26,13 @@ Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup, Database* passed_database)
 Prime_Scene::~Prime_Scene()
 {
 }
-
+//pure virtual for scene
 void Prime_Scene::SetContentValues()
 {
 
 }
 
-
+//pure virtual for scene
 void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 {
 		//replace with sqlite3 calls
@@ -105,7 +105,7 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 		std::cout << "LoadContentValuesByID: database closed" << std::endl;
 	
 }
-
+//pure virtual for scene
 void Prime_Scene::AddContents(Content passed_Content)
 {
 
@@ -135,7 +135,7 @@ void Prime_Scene::clearTempContent()
 	//temp_content.clearContent();
 
 }
-
+//pure virtual for scene
 void Prime_Scene::LoadContentPackage(std::string passedPackageID)
 {
 	   
@@ -410,5 +410,19 @@ void Prime_Scene::LoadGlassImageContent()
 	prime_contents.push_back(*temp_content);
 
 	std::cout << "Glass content pushed to prime contents" << std::endl;
+	delete temp_content;
+}
+
+void Prime_Scene::LoadTestAudioContent()
+{
+	Content* temp_content = new Content;
+
+	temp_content->SetContentID("freeze-mus");
+	temp_content->SetContentPath("Debug/resources/audio/Freeze Me.mp3");
+	temp_content->SetContentType("audio");
+	temp_content->SetContentRect(0, 0, 0, 0);
+	prime_contents.push_back(*temp_content);
+
+	std::cout << "freeze-mus content pushed to prime contents" << std::endl;
 	delete temp_content;
 }

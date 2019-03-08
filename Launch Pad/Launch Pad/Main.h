@@ -1,6 +1,8 @@
 #include "Stage.h"
 
-#pragma once
+#ifndef MAIN_H
+#define MAIN_H
+
 class CMain
 {
 public:
@@ -30,4 +32,4 @@ private:
 	int MouseY;
 
 };
-
+#endif //MAIN_H

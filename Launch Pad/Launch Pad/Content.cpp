@@ -52,14 +52,15 @@ void Content::SetContentType(std::string passed_type)
 
 		if ((passed_type == "image" )| (passed_type == "texture"))
 		{
-
 			contentType = "texture";
-
 		}
 		else if ((passed_type == "audio") | (passed_type == "sound"))
 		{
 			contentType = "audio";
-
+		}
+		else if ((passed_type == "sfx") | (passed_type == "soundeffect"))
+		{
+			contentType = "sfx";
 		}
 
 		else
@@ -78,16 +79,12 @@ void Content::clearContent()
 	contentID = "";
 	contentType = "";
 	this->ClearContentRect();
-
 }
 
 void Content::SetContentRect(int passed_x, int passed_y, int passed_w, int passed_h)
 {
-
 	contentRect.x = passed_x;
-
 	contentRect.y = passed_y;
-
 	contentRect.w = passed_w;
 	contentRect.h = passed_h;
 }

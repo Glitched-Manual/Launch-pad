@@ -22,7 +22,7 @@ public:
 	void LoadContentPackage(std::string passedPackageID);
 	void PackageLoader(std::vector<std::string> passedStringPackage);
 	void LoadFromDatabase(std::string passedID);
-
+	void LoadTestAudioContent();
 	std::vector<std::string> FilterSceneContents(std::string passedSceneList);
 
 	int callback(int argc, char **argv, char **azColName);
