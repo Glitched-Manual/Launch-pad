@@ -26,9 +26,9 @@ void Content::SetContentType(char passed_type) {
 			contentType = "texture";
 
 		}
-		else if ((passed_type == 'a' )| (passed_type == 's'))
+		else if ((passed_type == 's'))
 		{
-			contentType = "audio";
+			contentType = "sfx";
 
 		}
 
@@ -54,9 +54,9 @@ void Content::SetContentType(std::string passed_type)
 		{
 			contentType = "texture";
 		}
-		else if ((passed_type == "audio") | (passed_type == "sound"))
+		else if ((passed_type == "music") | (passed_type == "song")) //gave wrong typename for loading music
 		{
-			contentType = "audio";
+			contentType = "music";
 		}
 		else if ((passed_type == "sfx") | (passed_type == "soundeffect"))
 		{

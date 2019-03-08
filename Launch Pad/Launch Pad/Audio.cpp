@@ -14,17 +14,19 @@ CAudio::~CAudio()
 void CAudio::LoadAudio(Content passed_audio_Content)
 {
 	
-	if (passed_audio_Content.GetContentType() == "Music")
+	if (passed_audio_Content.GetContentType() == "music")
 	{
 		//if type == Music Load Music
 		LoadMusic(passed_audio_Content);
+		printf("Music loaded\n");
 	}
-	else if (passed_audio_Content.GetContentType() == "SFX")
+	else if (passed_audio_Content.GetContentType() == "sfx")
 	{
 		//else if Content type == SFX load SFX
 		LoadSFX(passed_audio_Content);
+		printf("SFX loaded\n");
 	}
-	
+	std::cout << "LoadAudio called id " << passed_audio_Content.GetContentID() << " passed" << std::endl;
 }
 
 void CAudio::LoadMusic(Content passed_music_Content)
@@ -32,20 +34,25 @@ void CAudio::LoadMusic(Content passed_music_Content)
 	// load Mix_Music struct
 	Mix_Music* music;
 	std::string music_path = passed_music_Content.GetContentPath();
-	 char* music_id_string = const_cast<char*>(passed_music_Content.GetContentID().c_str());
+	std::string string_id = passed_music_Content.GetContentID();
+	int ssize = (string_id.size() + 1);
+	char* music_id_string = new char;
+		
+	strcpy_s(music_id_string, ssize, string_id.c_str());
 	music = Mix_LoadMUS(music_path.c_str());
 	//Create Music Struct
-	Music* music_struct;
+	Music* music_struct = new Music;
 	// add Mix_Music data to Music struct
 	music_struct->_music = music;
 	music_struct->music_id = music_id_string;
 	// Push Loaded Music struct to Music vector
 	music_list.push_back(*music_struct);
 	printf("Song \"%s\" was pushed to the song list", music_struct->music_id);
+	std::cout << "Song id "<< passed_music_Content.GetContentID() <<" was pushed to the song list" << std::endl;
 	//delete all temperary values
-	delete music;
-	delete music_id_string;
-	delete music_struct;
+	//Mix_FreeMusic(music);
+	
+	//delete music_struct;
 }
 
 void CAudio::LoadSFX(Content passed_sfx_Content)
@@ -53,10 +60,13 @@ void CAudio::LoadSFX(Content passed_sfx_Content)
 	// load Mix_Chunk struct
 	Mix_Chunk* sfx_chunk;
 	std::string sfx_path = passed_sfx_Content.GetContentPath();
-	char* sfx_id_string = const_cast<char*>(passed_sfx_Content.GetContentID().c_str());
+	std::string get_id_string = passed_sfx_Content.GetContentID();
+	int ssize = passed_sfx_Content.GetContentID().size();
+	char* sfx_id_string = new char;
+	strcpy_s(sfx_id_string, ssize, get_id_string.c_str()); //was a mission to find
 	sfx_chunk = Mix_LoadWAV(sfx_path.c_str());
 	//Create SFX Struct
-	SFX* sfx_struct;
+	SFX* sfx_struct = new SFX;
 	// add Mix_Chunk data to SFX struct
 	sfx_struct->sfx_id = sfx_id_string;
 	sfx_struct->_sfx = sfx_chunk;
@@ -64,7 +74,7 @@ void CAudio::LoadSFX(Content passed_sfx_Content)
 	sfx_list.push_back(*sfx_struct);
 	printf("Sound effect \"%s\" was pushed to the sfx list", sfx_struct->sfx_id);
 	//delete all temperary values
-	delete sfx_chunk;
+	Mix_FreeChunk(sfx_chunk);
 	delete sfx_id_string;
 	delete sfx_struct;
 }
@@ -79,14 +89,16 @@ void CAudio::PlayMusicByID(std::string passed_music_id)
 		if(Mix_PausedMusic())  //resume if paused
 		{
 			Mix_ResumeMusic();
+			printf("Mix_ResumeMusic called\n");
 		}
 		else if (Mix_PlayingMusic()) //pause if playing
 		{
 			Mix_PauseMusic();
+			printf("Mix_PauseMusic called\n");
 		}
 		else { //find song by ID then play it
 
-			for (std::vector<Music>::iterator vi = music_list.begin; vi != music_list.end; vi++)
+			for (std::vector<Music>::iterator vi = music_list.begin(); vi < music_list.end(); vi++)
 			{
 				if (music_list[beat].music_id == passed_music_id)
 				{
@@ -108,6 +120,7 @@ void CAudio::PlayMusicByID(std::string passed_music_id)
 	}
 	else 
 	{
-		printf("CAudio PlayMusicByID error: music_list vector empty");
+		printf("CAudio PlayMusicByID error: music_list vector empty\n");
 	}
+	printf("PlayMusicByID called\n");
 }

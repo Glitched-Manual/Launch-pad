@@ -3,6 +3,8 @@
 #include "Content.h"
 #include <vector>
 #include <memory>
+#include <string>
+#include <cstring>
 #ifndef AUDIO_H
 #define AUDIO_H
 //do last or near completion

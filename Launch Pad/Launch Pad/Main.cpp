@@ -37,8 +37,8 @@ void CMain::SoftwareLoop()
 	//setup scene?
 
 	GetMainStage()->CreateTextures(); 
-   
-	while (!quit && pMainEvent->type != SDL_QUIT) {
+	GetMainStage()->CreateAudio();
+	while (!quit && GetMainEvent()->type != SDL_QUIT) {
 		csdl_setup->Start();
 		
 		//main_stage->TestContent();
@@ -57,10 +57,11 @@ void CMain::SoftwareLoop()
 
 		//Stage->DrawFront();
 		//Stage->Update();
-		if (pMainEvent->type == 'k') {
-			main_stage->GetStageAudio()->PlayMusicByID("test");
+		if ((GetMainEvent()->type == 768)&(GetMainEvent()->type == SDL_KEYDOWN) ) {
+			main_stage->GetStageAudio()->PlayMusicByID("freeze-mus");
+			std::cout << GetMainEvent()->type << std::endl;
 		}
-		
+		//std::cout << GetMainEvent()->type << std::endl;
 		csdl_setup->Finish();
 	}
 

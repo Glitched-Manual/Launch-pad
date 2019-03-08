@@ -29,6 +29,7 @@ public:
 	CAudio* GetStageAudio() { return stage_audio; }
 
 	void CreateTextures();
+	void CreateAudio();
 	void RenderScene();
 	void TestContent();
 	void DisplayTextureCount();

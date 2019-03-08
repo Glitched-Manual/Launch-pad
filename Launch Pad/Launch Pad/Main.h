@@ -11,6 +11,7 @@ public:
 
 	CSDL_Setup* GetSetup() { return csdl_setup; }
 	Stage* GetMainStage() { return main_stage; }
+	SDL_Event* GetMainEvent(){ return pMainEvent; }
 	Database* GetMainDatabase() { return mainDatabase; }
 	void SoftwareLoop();
 	//add getmouse position method

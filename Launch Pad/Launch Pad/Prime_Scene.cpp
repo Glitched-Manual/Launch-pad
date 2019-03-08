@@ -19,6 +19,8 @@ Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup, Database* passed_database)
 	LoadContentPackage("testScene");
 	std::cout << "package loaded" << std::endl;
 		//LoadFromDatabase("manual-img");
+	LoadTestAudioContent();
+	std::cout << "LoadTestAudioContent call complete" << std::endl;
 
 }
 
@@ -102,7 +104,7 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 		//clears column name list
 		prime_contents.push_back(*tempContent);
 		delete tempContent;
-		std::cout << "LoadContentValuesByID: database closed" << std::endl;
+		std::cout << "LoadContentValuesByID: loading complete" << std::endl;
 	
 }
 //pure virtual for scene
@@ -419,7 +421,7 @@ void Prime_Scene::LoadTestAudioContent()
 
 	temp_content->SetContentID("freeze-mus");
 	temp_content->SetContentPath("Debug/resources/audio/Freeze Me.mp3");
-	temp_content->SetContentType("audio");
+	temp_content->SetContentType("music");
 	temp_content->SetContentRect(0, 0, 0, 0);
 	prime_contents.push_back(*temp_content);
 

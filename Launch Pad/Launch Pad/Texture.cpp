@@ -85,7 +85,7 @@ void CTexture::render(int x, int y, int w, int h, SDL_Rect* clip, double angle, 
 	//Render to screen
 
 	//pass texture
-	SDL_RenderCopyEx((*this).GetRenderer(), texture, clip, &renderQuad, angle, center, flip);
+	SDL_RenderCopyEx(GetRenderer(), texture, clip, &renderQuad, angle, center, flip);
 }
 
 void CTexture::RenderTextureByID(std::string passed_string)

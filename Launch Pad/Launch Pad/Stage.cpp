@@ -82,11 +82,7 @@ void Stage::CreateTextures()
 				std::cout << "Texture created" << std::endl;
 
 				AmountOfImages++;
-			}
-			else if ((stage_contents[x].GetContentType() == "audio")|(stage_contents[x].GetContentType() == "sfx"))
-			{
-				stage_audio->LoadAudio(stage_contents[x]);
-			}
+			}			
 			else {
 
 
@@ -114,6 +110,25 @@ void Stage::CreateTextures()
 		
 	}
    delete create_temp;
+}
+
+void Stage::CreateAudio()
+{
+	if (!(stage_contents.empty()))
+	{
+		for (unsigned int x = 0; x < stage_contents.size(); x++) 
+		{
+			if ((stage_contents[x].GetContentType() == "music") | (stage_contents[x].GetContentType() == "sfx")) //forgot to change type to "music" from "audio"
+			{
+				stage_audio->LoadAudio(stage_contents[x]);
+				printf("Stage::LoadAudio Called\n");
+			}
+		}
+	}
+	else
+	{
+		printf("Stage::CreateAudio error : stage_contents is empty\n");
+	}
 }
 
 void Stage::RenderScene() 
