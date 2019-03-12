@@ -19,8 +19,8 @@ Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup, Database* passed_database)
 	LoadContentPackage("testScene");
 	std::cout << "package loaded" << std::endl;
 		//LoadFromDatabase("manual-img");
-	LoadTestAudioContent();
-	std::cout << "LoadTestAudioContent call complete" << std::endl;
+	//LoadTestAudioContent();
+	//std::cout << "LoadTestAudioContent call complete" << std::endl;
 
 }
 

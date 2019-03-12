@@ -30,15 +30,21 @@ void CMain::SoftwareLoop()
 	csdl_setup->init();
 
 	bool quit = false;
-
-
-	
+	bool buttonReleased = true;
+	/*
+	if (GetMainEvent()->key.keysym.scancode != SDL_GetScancodeFromKey(GetMainEvent()->key.keysym.sym))
+		printf("Physical %s key acting as %s key",
+			SDL_GetScancodeName(GetMainEvent()->key.keysym.scancode),
+			SDL_GetKeyName(GetMainEvent()->key.keysym.sym));
+			*/
+	std::cout << GetMainEvent()->key.type << std::endl;
 
 	//setup scene?
 
 	GetMainStage()->CreateTextures(); 
 	GetMainStage()->CreateAudio();
 	while (!quit && GetMainEvent()->type != SDL_QUIT) {
+
 		csdl_setup->Start();
 		
 		//main_stage->TestContent();
@@ -51,16 +57,23 @@ void CMain::SoftwareLoop()
 		//SDL_GetMouseState(&MouseX, &MouseY);
 
 		//event check()
-
+		if ((GetMainEvent()->type == 768)&(buttonReleased)) {
+			buttonReleased = false;
+			std::cout << "buttonPressed" << std::endl;
+			main_stage->GetStageAudio()->PlayMusicByID("freeze-mus");
+			std::cout << GetMainEvent()->type << std::endl;
+		}
+		if ((GetMainEvent()->type == SDL_KEYUP)&(buttonReleased == false))
+		{
+			buttonReleased = true;
+			std::cout << "buttonReleased" << std::endl;
+		}
 		//Stage->DrawBack();
 
 
 		//Stage->DrawFront();
 		//Stage->Update();
-		if ((GetMainEvent()->type == 768)&(GetMainEvent()->type == SDL_KEYDOWN) ) {
-			main_stage->GetStageAudio()->PlayMusicByID("freeze-mus");
-			std::cout << GetMainEvent()->type << std::endl;
-		}
+		
 		//std::cout << GetMainEvent()->type << std::endl;
 		csdl_setup->Finish();
 	}

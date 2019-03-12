@@ -1,0 +1,33 @@
+--	Create Table To store PrimeScene Content
+
+CREATE TABLE LaunchPad.PrimeContent(
+
+-- content id primary key
+ContentID VARCHAR(20) PRIMARY KEY,
+-- content type
+
+ContentType VARCHAR(15),
+
+--content path
+
+ContentPath VARCHAR(40),
+
+-- string for content rect use regex or filter x,y,w and h values
+
+ContentRect varchar(20)
+);
+
+/*
+
+	temp_content->SetContentID("manual-img");
+	temp_content->SetContentPath("Debug/resources/images/solo.jpg");
+	temp_content->SetContentType('t');
+	temp_content->SetContentRect(0, 0, 100, 100);
+	prime_contents.push_back(*temp_content);
+*/
+
+--update rect
+UPDATE PrimeContent
+SET ContentRect='x = 200; y = 100; w = 200; h= 200;'
+WHERE ContentID='glass-img';
+--if where condition is forgotten all records will be changed

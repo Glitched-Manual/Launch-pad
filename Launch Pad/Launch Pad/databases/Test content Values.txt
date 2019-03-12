@@ -1,7 +1,0 @@
-INSERT INTO PrimeContent
-VALUES("manual-img","texture","Debug/resources/images/solo.jpg","x = 0; y = 0; w = 100; h= 100;");
-
-INSERT INTO PrimeContent
-VALUES("glass-img","texture",
-"Debug/resources/images/glass.jpg",
-"x = 20; y = 20; w = 100; h= 100;");
