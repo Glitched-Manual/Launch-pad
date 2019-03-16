@@ -5,6 +5,10 @@
 #include <memory>
 #include <string>
 #include <cstring>
+
+#if defined(_WIN32)|(_WIN64)
+	#pragma warning(disable : 4996)
+#endif
 #ifndef AUDIO_H
 #define AUDIO_H
 //do last or near completion

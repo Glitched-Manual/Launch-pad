@@ -38,7 +38,8 @@ void CAudio::LoadMusic(Content passed_music_Content)
 	int ssize = (string_id.size() + 1);
 	char* music_id_string = new char;
 		
-	strcpy_s(music_id_string, ssize, string_id.c_str());
+	//strcpy_s(music_id_string, ssize, string_id.c_str());// linux issues
+	strcpy(music_id_string,string_id.c_str());
 	music = Mix_LoadMUS(music_path.c_str());
 	//Create Music Struct
 	Music* music_struct = new Music;
@@ -63,7 +64,8 @@ void CAudio::LoadSFX(Content passed_sfx_Content)
 	std::string get_id_string = passed_sfx_Content.GetContentID();
 	int ssize = passed_sfx_Content.GetContentID().size();
 	char* sfx_id_string = new char;
-	strcpy_s(sfx_id_string, ssize, get_id_string.c_str()); //was a mission to find
+	//strcpy_s(sfx_id_string, ssize, get_id_string.c_str()); //was a mission to find issues on linux
+ 	strcpy(sfx_id_string,get_id_string.c_str());
 	sfx_chunk = Mix_LoadWAV(sfx_path.c_str());
 	//Create SFX Struct
 	SFX* sfx_struct = new SFX;

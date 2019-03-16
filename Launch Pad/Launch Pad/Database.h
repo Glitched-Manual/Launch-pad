@@ -1,14 +1,16 @@
-#ifndef __DATABASE_H__
-#define __DATABASE_H__
-
+#if defined(_WIN32)|(_WIN64)
+	#include "sqlite3.h" //windows static lib
+#elif defined(__linux__)
+	#include<sqlite3.h>
+#endif
 #include <string>
 #include <vector>
 #include <cstring>
 #include <cstdlib>
-#include "sqlite3.h" //windows stacic lib
 
+#ifndef __DATABASE_H__
+#define __DATABASE_H__
 //Do not close until the program needs to be closed
-
 class Database
 {
 public:

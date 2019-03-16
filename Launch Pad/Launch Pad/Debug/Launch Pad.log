@@ -1,2 +1,9 @@
-﻿  Main.cpp
+﻿  Audio.cpp
+  Database.cpp
+  Main.cpp
+  Prime_Scene.cpp
+  Stage.cpp
+  launchPad.cpp
+  Generating Code...
+c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\stage.cpp(224): warning C4715: 'Stage::GetTextureObject': not all control paths return a value
   Launch Pad.vcxproj -> C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Debug\Launch Pad.exe
