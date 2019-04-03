@@ -13,20 +13,16 @@ public:
 
 	CTexture(CSDL_Setup* passed_setup, Content passed_content);
 	~CTexture();
-
-	static int textureCount;
-
+		
 	//pass content data
 	void AddTexture();
 	void SetTextureID();
 	std::string GetTextureID();
-	int GetTextureCount() { return textureCount; }
-
-
+	
 	void LoadContentTexture();
 	void LoadContentTextureByID();
 	
-	//SDL_Texture GetTexture() { return texture; } failed render within this class
+	SDL_Texture* GetTexture() { return texture; } //failed render within this class
 
 	SDL_Renderer* GetRenderer() { return pRenderer; }
 
@@ -41,10 +37,10 @@ public:
 private:
 	std::string textureID;
 	//changed to none-pointer
-	CSDL_Setup* csdl_setup;
+	CSDL_Setup* csdl_setup = NULL;
 	Content texture_content;
-	SDL_Renderer* pRenderer;
-	SDL_Texture* texture;
-	SDL_Rect* texture_rect;
+	SDL_Renderer* pRenderer = NULL;
+	SDL_Texture* texture = NULL;
+	SDL_Rect* texture_rect = NULL;
 };
 

@@ -31,11 +31,7 @@ public:
 	void CreateTextures();
 	void CreateAudio();
 	void RenderScene();
-	void TestContent();
-	void DisplayTextureCount();
-	void DisplayContentCount();
-	//void count() { loop_iter++; }
-
+	
 private:
 	
 

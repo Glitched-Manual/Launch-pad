@@ -12,15 +12,15 @@ ContentType VARCHAR(15),
 
 ContentPath VARCHAR(40),
 
--- string for content rect use regex or filter x,y,w and h values
+-- string for content rect use regex or filter x,y,w and h values, done
 
 ContentRect varchar(20)
 );
-
+--end of create table script
 /*
 
 	temp_content->SetContentID("manual-img");
-	temp_content->SetContentPath("Debug/resources/images/solo.jpg");
+	temp_content->SetContentPath("resources/images/solo.jpg");
 	temp_content->SetContentType('t');
 	temp_content->SetContentRect(0, 0, 100, 100);
 	prime_contents.push_back(*temp_content);

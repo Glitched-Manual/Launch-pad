@@ -5,10 +5,8 @@
 #include <string>
 
 Content::Content()
-{
-	contentCount++;
+{	
 }
-
 
 Content::~Content()
 {

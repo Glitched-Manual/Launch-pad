@@ -15,8 +15,7 @@ CTexture::CTexture(CSDL_Setup* passed_setup,Content passed_content)
 	texture_rect = new SDL_Rect (texture_content.GetContentRect());
 	SetTextureID();
 	LoadContentTexture();
-	textureCount++;
-
+	
 }
 
 
@@ -85,7 +84,7 @@ void CTexture::render(int x, int y, int w, int h, SDL_Rect* clip, double angle, 
 	//Render to screen
 
 	//pass texture
-	SDL_RenderCopyEx(GetRenderer(), texture, clip, &renderQuad, angle, center, flip);
+	SDL_RenderCopyEx(GetRenderer(), GetTexture(), clip, &renderQuad, angle, center, flip); //exception thrown here
 }
 
 void CTexture::RenderTextureByID(std::string passed_string)

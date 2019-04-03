@@ -118,7 +118,8 @@ void CSDL_Setup::Start()
 
 void CSDL_Setup::Finish()
 {
-	SDL_RenderPresent(pRenderer);
+	
+	SDL_RenderPresent(pRenderer); //break point triggered here
 }
 
 

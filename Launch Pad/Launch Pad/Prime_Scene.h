@@ -15,7 +15,6 @@ public:
 	void AddContents(Content passed_Content);
 	void LoadContentValuesByID(std::string passed_ID);
 	std::vector<Content>* GetSceneContents() { return &prime_contents; }
-	//Content GetContentByID(std::string passed_string);
 	void clearTempContent();
 	void LoadManualImageContent();
 	void LoadGlassImageContent();
@@ -31,7 +30,7 @@ public:
 
 	CSDL_Setup* GetSetup() { return csdl_setup; }
 
-	static int VectorContentStringCount;
+	//static int VectorContentStringCount;
 	//callbacks must c type be structs
 	
 

@@ -164,51 +164,12 @@ void Stage::RenderScene()
 		}
 	}
 }
-//delete this
-void Stage::DisplayTextureCount()
-{
 
-	//for loop to search all of contents
-	if (!(stage_contents.empty())) {
-	//loop vector begin to end
-	if (stage_textures[0].GetTextureCount() != TextureObjectTracker)
-	{
-
-		std::cout << "stage_textures contains " << stage_textures[0].GetTextureCount() << " object(s)" << std::endl;
-
-
-
-		TextureObjectTracker = stage_textures[0].GetTextureCount();
-	}
-}
-}
 
 //delete this use size() from vector
-void Stage::DisplayContentCount() 
-{
-
-	//for loop to search all of contents
-
-	//loop vector begin to end
-	if (!(stage_contents.empty())) {
-		if (stage_contents[0].GetContentCount() != ContentObjectTracker)
-		{
-
-			std::cout << "stage_contents contains " << stage_contents[0].GetContentCount() << " object(s)" << std::endl;
 
 
 
-			ContentObjectTracker = stage_contents[0].GetContentCount();
-		}
-	}
-}
-
-//erase this too
-void Stage::TestContent()
-{
-	DisplayContentCount();
-	DisplayTextureCount();
-}
 
 CTexture* Stage::GetTextureObject(unsigned int passed_slot)
 {

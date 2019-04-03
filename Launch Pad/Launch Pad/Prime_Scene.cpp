@@ -1,7 +1,7 @@
 #include "Prime_Scene.h"
 #include <iostream>
 #include "sqlite3.h"
-int Prime_Scene::VectorContentStringCount = 0;
+
 Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup, Database* passed_database)
 {
 	PrimeDB = passed_database;
@@ -377,8 +377,7 @@ std::vector<std::string> Prime_Scene::FilterSceneContents(std::string passedScen
 	for (auto a : filteredList)
 	{
 		std::cout << it << ". " << a << std::endl;
-		it++;
-		VectorContentStringCount++;
+		it++;		
 	}
 	return filteredList;
 }
