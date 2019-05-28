@@ -32,20 +32,20 @@ public:
 	~CAudio();
 	//add and load music
 
-	void LoadAudio(Content* passed_audio_Content);
+	void LoadAudio(Content passed_audio_Content);
 	//add and load sfx
 
-	void LoadMusic(Content* passed_music_Content);
+	void LoadMusic(Content passed_music_Content);
 
-	void LoadSFX(Content* passed_sfx_Content);
+	void LoadSFX(Content passed_sfx_Content);
 
 	//play music
 
 	void PlayMusicByID(std::string passed_music_id);
 private:
 	//laod only one song?
-	std::vector<Music*>* music_list;
-	std::vector<SFX*>* sfx_list;
+	std::vector<Music> music_list;
+	std::vector<SFX> sfx_list;
 };
 //add needed to corresponding vector within Audio class
 

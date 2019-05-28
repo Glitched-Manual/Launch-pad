@@ -4,8 +4,6 @@
 
 CAudio::CAudio()
 {
-	 music_list = new std::vector<Music*>;
-	 sfx_list = new std::vector<SFX*>;
 }
 
 
@@ -13,30 +11,30 @@ CAudio::~CAudio()
 {
 }
 
-void CAudio::LoadAudio(Content* passed_audio_Content)
+void CAudio::LoadAudio(Content passed_audio_Content)
 {
 	
-	if (*passed_audio_Content->GetContentType() == "music")
+	if (passed_audio_Content.GetContentType() == "music")
 	{
 		//if type == Music Load Music
 		LoadMusic(passed_audio_Content);
 		printf("Music loaded\n");
 	}
-	else if (*passed_audio_Content->GetContentType() == "sfx")
+	else if (passed_audio_Content.GetContentType() == "sfx")
 	{
 		//else if Content type == SFX load SFX
 		LoadSFX(passed_audio_Content);
 		printf("SFX loaded\n");
 	}
-	std::cout << "LoadAudio called id " << passed_audio_Content->GetContentID() << " passed" << std::endl;
+	std::cout << "LoadAudio called id " << passed_audio_Content.GetContentID() << " passed" << std::endl;
 }
 
-void CAudio::LoadMusic(Content* passed_music_Content)
+void CAudio::LoadMusic(Content passed_music_Content)
 {
 	// load Mix_Music struct
 	Mix_Music* music;
-	std::string music_path = *passed_music_Content->GetContentPath();
-	std::string string_id = *passed_music_Content->GetContentID();
+	std::string music_path = passed_music_Content.GetContentPath();
+	std::string string_id = passed_music_Content.GetContentID();
 	int ssize = (string_id.size() + 1);
 	char* music_id_string = new char;
 		
@@ -49,22 +47,22 @@ void CAudio::LoadMusic(Content* passed_music_Content)
 	music_struct->_music = music;
 	music_struct->music_id = music_id_string;
 	// Push Loaded Music struct to Music vector
-	music_list->push_back(music_struct);
+	music_list.push_back(*music_struct);
 	printf("Song \"%s\" was pushed to the song list", music_struct->music_id);
-	std::cout << "Song id "<< passed_music_Content->GetContentID() <<" was pushed to the song list" << std::endl;
+	std::cout << "Song id "<< passed_music_Content.GetContentID() <<" was pushed to the song list" << std::endl;
 	//delete all temperary values
 	//Mix_FreeMusic(music);
 	
 	//delete music_struct;
 }
 
-void CAudio::LoadSFX(Content* passed_sfx_Content)
+void CAudio::LoadSFX(Content passed_sfx_Content)
 {
 	// load Mix_Chunk struct
 	Mix_Chunk* sfx_chunk;
-	std::string sfx_path = *passed_sfx_Content->GetContentPath();
-	std::string get_id_string = *passed_sfx_Content->GetContentID();
-	int ssize = passed_sfx_Content->GetContentID()->size();
+	std::string sfx_path = passed_sfx_Content.GetContentPath();
+	std::string get_id_string = passed_sfx_Content.GetContentID();
+	int ssize = passed_sfx_Content.GetContentID().size();
 	char* sfx_id_string = new char;
 	//strcpy_s(sfx_id_string, ssize, get_id_string.c_str()); //was a mission to find issues on linux
  	strcpy(sfx_id_string,get_id_string.c_str());
@@ -75,7 +73,7 @@ void CAudio::LoadSFX(Content* passed_sfx_Content)
 	sfx_struct->sfx_id = sfx_id_string;
 	sfx_struct->_sfx = sfx_chunk;
 	// Push Loaded SFX struct to SFX vector
-	sfx_list->push_back(sfx_struct);
+	sfx_list.push_back(*sfx_struct);
 	printf("Sound effect \"%s\" was pushed to the sfx list", sfx_struct->sfx_id);
 	//delete all temperary values
 	Mix_FreeChunk(sfx_chunk);
@@ -85,9 +83,9 @@ void CAudio::LoadSFX(Content* passed_sfx_Content)
 
 void CAudio::PlayMusicByID(std::string passed_music_id)
 {
-	if (!(music_list->empty()))
+	if (!(music_list.empty()))
 	{    
-		int total_songs = 0;
+		int beat = 0;
 		bool exists = false;
 
 		if(Mix_PausedMusic())  //resume if paused
@@ -102,19 +100,19 @@ void CAudio::PlayMusicByID(std::string passed_music_id)
 		}
 		else { //find song by ID then play it
 
-			for (std::vector<Music*>::iterator vi = music_list->begin(); vi < music_list->end(); vi++)
+			for (std::vector<Music>::iterator vi = music_list.begin(); vi < music_list.end(); vi++)
 			{
-				if (music_list->at(total_songs)->music_id == passed_music_id)
+				if (music_list[beat].music_id == passed_music_id)
 				{
 					// do checks before getting this far? -done
 
 					
-						Mix_PlayMusic(music_list->at(total_songs)->_music, 1);
-						
+						Mix_PlayMusic(music_list[beat]._music, 1);
+					
 					
 					exists = true;
 				}
-				total_songs++;
+				beat++;
 			}
 			if (!(exists))
 			{

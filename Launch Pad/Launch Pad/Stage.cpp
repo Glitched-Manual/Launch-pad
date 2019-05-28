@@ -10,10 +10,8 @@ Stage::Stage(CSDL_Setup* passed_setup, Database* passed_database)
 	pMainEvent = csdl_setup->getMainEvent();
 	pRenderer = csdl_setup->getRenderer();
 
-	stage_contents = new std::vector<Content*>;
-	stage_textures = new std::vector<CTexture*>;
 	LoadSceneBySceneName("prime_Scene");
-	std::cout << "PrimeScene Loaded" << std::endl;
+	AmountOfImages = 0;
 }
 
 
@@ -52,7 +50,7 @@ void Stage::SetContentsFromScene()
 {
 	//risky use try catch
 
-	stage_contents = current_scene->GetSceneContents();
+	stage_contents = *current_scene->GetSceneContents();
 	/*
 	if (stage_contents != *current_scene->GetSceneContents())
 	{
@@ -64,57 +62,67 @@ void Stage::SetContentsFromScene()
 //make bool in scene to create texture if not already done
 void Stage::CreateTextures()
 {
-	std::cout << "CreateTextures Start" << std::endl;
 	Content* create_temp = new Content;
 	//std::cout << stage_contents[0].GetContentType() << std::endl;
-   if (!(stage_contents->empty()))
+   if (!(stage_contents.empty()))
 	{
 	   //changed from contentcount to size() way better
-		for (unsigned int x = 0; x < stage_contents->size(); x++) 
-		{  // crash cause found
-			
-			if (*stage_contents->at(x)->GetContentType() == "texture") {
+		for (unsigned int x = 0; x < stage_contents.size(); x++) 
+		{
+			if (stage_contents[x].GetContentType() == "texture") {
 				//GetSceneContents()->begin()->GetContentPath()
 				//use get content position to add to ->begin ex: begin +2
 				//used *stage_contents
-				Content* content_arg = stage_contents->at(x);
-				std::cout << "Texture found" << std::endl;
-				CTexture* temp_ctexture = new CTexture(csdl_setup, content_arg);
+				Content content_arg = stage_contents[x];
 
-				stage_textures->push_back(temp_ctexture);
+				CTexture temp_ctexture(csdl_setup, content_arg);
+
+				stage_textures.push_back(temp_ctexture);
 
 				std::cout << "Texture created" << std::endl;
 
-				
+				AmountOfImages++;
 			}			
 			else {
 
-				std::cout << "Not a texture" << std::endl;
+
 			}
-			
 		}
+		/*if (stage_contents[1].GetContentType() == "texture") {
+			//GetSceneContents()->begin()->GetContentPath()
+			//use get content position to add to ->begin ex: begin +2
+			//used *stage_contents
+			Content content_arg = stage_contents[1];
+
+			CTexture temp_ctexture(csdl_setup, content_arg);
+
+			stage_textures.push_back(temp_ctexture);
+
+			std::cout << "Texture created" << std::endl;
+			AmountOfImages++;
+		}
+
+		else {
+
+			std::cout << "unknown type" << std::endl;
+		}
+		*/
 		
 	}
-   std::cout << "CreateTextures End" << std::endl;
    delete create_temp;
 }
 
 void Stage::CreateAudio()
 {
-	if ((!stage_contents->empty()))
+	if (!(stage_contents.empty()))
 	{
-		for (unsigned int x = 0; x < stage_contents->size(); x++) 
+		for (unsigned int x = 0; x < stage_contents.size(); x++) 
 		{
-			Content* content_temp = stage_contents->at(x);
-			if ((*content_temp->GetContentType() == "music") | (*content_temp->GetContentType() == "sfx")) //forgot to change type to "music" from "audio"
+			if ((stage_contents[x].GetContentType() == "music") | (stage_contents[x].GetContentType() == "sfx")) //forgot to change type to "music" from "audio"
 			{
-				stage_audio->LoadAudio(content_temp);
+				stage_audio->LoadAudio(stage_contents[x]);
 				printf("Stage::LoadAudio Called\n");
 			}
-			else {
-				printf("non audio file found\n");
-			}
-			delete content_temp;
 		}
 	}
 	else
@@ -125,23 +133,23 @@ void Stage::CreateAudio()
 
 void Stage::RenderScene() 
 {
-	if (!(stage_textures->empty())) 
+	if (!(stage_textures.empty())) 
 	{
 
-		for (unsigned int i = 0; i < stage_textures->size(); i++)
+		for (unsigned int i = 0; i < stage_textures.size(); i++)
 		{
 			//maybe call a scene method to render stuff
 			try {
-				if (*stage_textures->at(i)->GetTextureID() != "")
+				if (stage_textures[i].GetTextureID() > "")
 				{
 					//check it texture exists
-					for (unsigned int it = 0; it < stage_contents->size(); it++)
+					for (unsigned int it = 0; it < stage_contents.size(); it++)
 					{
-					//render by address
-						if (*stage_contents->at(i)->GetContentID() == *stage_textures->at(i)->GetTextureID())
+					//reder by address
+						if (stage_contents[it].GetContentID() == stage_textures[i].GetTextureID()) 
 						{
 							CTexture rendered_texture = *GetTextureObject(it);
-							rendered_texture.render(stage_contents->at(i)->GetContentRect()->x, stage_contents->at(i)->GetContentRect()->y, stage_contents->at(it)->GetContentRect()->w, stage_contents->at(it)->GetContentRect()->h);
+							rendered_texture.render(stage_contents[it].GetContentRect().x, stage_contents[it].GetContentRect().y, stage_contents[it].GetContentRect().w, stage_contents[it].GetContentRect().h);
 						}
 				    }
 				}
@@ -165,17 +173,11 @@ void Stage::RenderScene()
 
 CTexture* Stage::GetTextureObject(unsigned int passed_slot)
 {
-	if (passed_slot >= stage_textures->size())
-	{
 
-		passed_slot = passed_slot % stage_textures->size();
-
-	}
 	//only allows images to be called?
-	if (passed_slot < stage_textures->size())
+	if (passed_slot < stage_textures.size())
 	{ 
-
-		return stage_textures->at(passed_slot);
+		return &stage_textures[passed_slot];
 		
 	}
 

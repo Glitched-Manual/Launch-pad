@@ -21,12 +21,12 @@ void Content::SetContentType(char passed_type) {
 		if ((passed_type == 'i') |( passed_type == 't'))
 		{
 
-			*contentType = "texture";
+			contentType = "texture";
 
 		}
 		else if ((passed_type == 's'))
 		{
-			*contentType = "sfx";
+			contentType = "sfx";
 
 		}
 
@@ -50,15 +50,15 @@ void Content::SetContentType(std::string passed_type)
 
 		if ((passed_type == "image" )| (passed_type == "texture"))
 		{
-			*contentType = "texture";
+			contentType = "texture";
 		}
 		else if ((passed_type == "music") | (passed_type == "song")) //gave wrong typename for loading music
 		{
-			*contentType = "music";
+			contentType = "music";
 		}
 		else if ((passed_type == "sfx") | (passed_type == "soundeffect"))
 		{
-			*contentType = "sfx";
+			contentType = "sfx";
 		}
 
 		else
@@ -73,18 +73,18 @@ void Content::SetContentType(std::string passed_type)
 
 void Content::clearContent()
 {
-	*contentPath = "";
-	*contentID = "";
-	*contentType = "";
-	ClearContentRect();
+	contentPath = "";
+	contentID = "";
+	contentType = "";
+	this->ClearContentRect();
 }
 
 void Content::SetContentRect(int passed_x, int passed_y, int passed_w, int passed_h)
 {
-	contentRect->x = passed_x;
-	contentRect->y = passed_y;
-	contentRect->w = passed_w;
-	contentRect->h = passed_h;
+	contentRect.x = passed_x;
+	contentRect.y = passed_y;
+	contentRect.w = passed_w;
+	contentRect.h = passed_h;
 }
 
 void Content::SetContentRect(std::string passed_string_rect)
@@ -114,7 +114,7 @@ void Content::SetContentRect(std::string passed_string_rect)
 					++i;
 				}
 				//contentRect.x = atoi(temp_value);
-				contentRect->x = stoi(temp_value);
+				contentRect.x = stoi(temp_value);
 			}
 			else if (passed_string_rect[i] == 'y')
 			{
@@ -129,7 +129,7 @@ void Content::SetContentRect(std::string passed_string_rect)
 
 				}
 				//contentRect.y = atoi(temp_value);
-				contentRect->y = stoi(temp_value);
+				contentRect.y = stoi(temp_value);
 				//std::cout << "all is good " << temp_value << std::endl;
 
 			}
@@ -145,7 +145,7 @@ void Content::SetContentRect(std::string passed_string_rect)
 					i++;
 				}
 				//contentRect.w = atoi(temp_value);
-				contentRect->w = stoi(temp_value);
+				contentRect.w = stoi(temp_value);
 				//std::cout << "all is good " << temp_value << std::endl;
 			}
 			else if (passed_string_rect[i] == 'h')
@@ -160,7 +160,7 @@ void Content::SetContentRect(std::string passed_string_rect)
 					i++;
 				}
 				//contentRect.x = atoi(temp_value);
-				contentRect->h = stoi(temp_value);
+				contentRect.h = stoi(temp_value);
 				//std::cout << "all is good " << temp_value << std::endl;
 			}
 		}
@@ -171,5 +171,5 @@ void Content::SetContentRect(std::string passed_string_rect)
 }
 	void Content::ClearContentRect()
 	{
-		SetContentRect(0, 0, 0, 0);
+		this->SetContentRect(0, 0, 0, 0);
 	}
