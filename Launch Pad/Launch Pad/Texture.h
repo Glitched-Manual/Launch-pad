@@ -17,7 +17,7 @@ public:
 	//pass content data
 	void AddTexture();
 	void SetTextureID();
-	std::string GetTextureID();
+	std::string* GetTextureID();
 	
 	void LoadContentTexture();
 	void LoadContentTextureByID();
@@ -35,7 +35,7 @@ public:
 	void RenderTextureByID(std::string passed_string);
 
 private:
-	std::string textureID;
+	std::string* textureID;
 	//changed to none-pointer
 	CSDL_Setup* csdl_setup ;
 	Content* texture_content;

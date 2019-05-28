@@ -29,7 +29,7 @@ Prime_Scene::~Prime_Scene()
 {
 	delete csdl_setup;
 	delete pMainEvent;
-	delete pRenderer;
+	//delete pRenderer;
 	delete PrimeDB;
 
 }
@@ -61,8 +61,8 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 			for (std::vector<std::vector<std::string> >::iterator it = result.begin(); it < result.end(); ++it)
 			{
 				std::vector<std::string> row = *it;
-				//no value error row.at(1)
-				for (unsigned int count = 0; count < row.size(); count++)
+				//no value error row.at(1) - row moves to 10 ?
+				for (unsigned int count = 0; count < it->size(); count++)
 				{
 					std::cout << "Column: " << PrimeDB->GetColumnList().at(count) <<std::endl;
 					std::cout << "Values: " << row.at(count) << std::endl;
@@ -284,7 +284,7 @@ int Prime_Scene::SettingCallback(int argc, char **argv, char **azColName)
 	std::cout << tempContent->GetContentPath() << std::endl;
 	std::cout << tempContent->GetContentType() << std::endl;
 
-	std::cout << tempContent->GetContentRect().x << std::endl;
+	std::cout << tempContent->GetContentRect()->x << std::endl;
 	std::cout << "Prime Contents capacity = "<< prime_contents->capacity() << std::endl;
 	std::cout << "Content Pushing" << std::endl;
 	//fails here

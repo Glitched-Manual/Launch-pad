@@ -73,7 +73,7 @@ void Stage::CreateTextures()
 		for (unsigned int x = 0; x < stage_contents->size(); x++) 
 		{  // crash cause found
 			
-			if (stage_contents->at(x)->GetContentType() == "texture") {
+			if (*stage_contents->at(x)->GetContentType() == "texture") {
 				//GetSceneContents()->begin()->GetContentPath()
 				//use get content position to add to ->begin ex: begin +2
 				//used *stage_contents
@@ -106,7 +106,7 @@ void Stage::CreateAudio()
 		for (unsigned int x = 0; x < stage_contents->size(); x++) 
 		{
 			Content* content_temp = stage_contents->at(x);
-			if ((content_temp->GetContentType() == "music") | (content_temp->GetContentType() == "sfx")) //forgot to change type to "music" from "audio"
+			if ((*content_temp->GetContentType() == "music") | (*content_temp->GetContentType() == "sfx")) //forgot to change type to "music" from "audio"
 			{
 				stage_audio->LoadAudio(content_temp);
 				printf("Stage::LoadAudio Called\n");
@@ -132,16 +132,16 @@ void Stage::RenderScene()
 		{
 			//maybe call a scene method to render stuff
 			try {
-				if (stage_textures->at(i)->GetTextureID() != "")
+				if (*stage_textures->at(i)->GetTextureID() != "")
 				{
 					//check it texture exists
 					for (unsigned int it = 0; it < stage_contents->size(); it++)
 					{
-					//reder by address
-						if (stage_contents->at(i)->GetContentID() == stage_textures->at(i)->GetTextureID())
+					//render by address
+						if (*stage_contents->at(i)->GetContentID() == *stage_textures->at(i)->GetTextureID())
 						{
 							CTexture rendered_texture = *GetTextureObject(it);
-							rendered_texture.render(stage_contents->at(i)->GetContentRect().x, stage_contents->at(i)->GetContentRect().y, stage_contents->at(it)->GetContentRect().w, stage_contents->at(it)->GetContentRect().h);
+							rendered_texture.render(stage_contents->at(i)->GetContentRect()->x, stage_contents->at(i)->GetContentRect()->y, stage_contents->at(it)->GetContentRect()->w, stage_contents->at(it)->GetContentRect()->h);
 						}
 				    }
 				}

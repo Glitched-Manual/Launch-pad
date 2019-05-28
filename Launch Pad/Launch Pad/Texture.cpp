@@ -13,7 +13,7 @@ CTexture::CTexture(CSDL_Setup* passed_setup,Content* passed_content)
 	texture_content = passed_content;
     //
 	pRenderer = csdl_setup->getRenderer();
-	texture_rect = new SDL_Rect (texture_content->GetContentRect());
+	texture_rect = texture_content->GetContentRect();
 	SetTextureID();
 	LoadContentTexture();
 	
@@ -34,7 +34,7 @@ void CTexture::AddTexture()
 	//get content from passed_content make texture add to texture vector
 }
 
-std::string CTexture::GetTextureID()
+std::string* CTexture::GetTextureID()
 {
 	return textureID;
 }
@@ -42,7 +42,7 @@ std::string CTexture::GetTextureID()
 
 void CTexture::LoadContentTexture() {
 
-	texture = IMG_LoadTexture(GetRenderer(), texture_content->GetContentPath().c_str());
+	texture = IMG_LoadTexture(GetRenderer(), texture_content->GetContentPath()->c_str());
 
 	if (texture == NULL) 
 	{
@@ -62,7 +62,7 @@ void CTexture::LoadContentTextureByID(){
 void CTexture::SetTextureID()
 {
 
-	textureID = texture_content->GetContentID();
+	*textureID = *texture_content->GetContentID();
 
 }
 
