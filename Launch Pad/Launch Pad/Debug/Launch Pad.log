@@ -1,132 +1,56 @@
-﻿  Audio.cpp
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:  '=': cannot convert from 'std::vector<Music *,std::allocator<_Ty>> **' to 'std::vector<Music *,std::allocator<_Ty>> *'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:             _Ty=Music *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,16): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:  '=': cannot convert from 'std::vector<SFX *,std::allocator<_Ty>> **' to 'std::vector<SFX *,std::allocator<_Ty>> *'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:             _Ty=SFX *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,14): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:  'music_id': is not a member of 'std::vector<Music *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:             _Ty=Music *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :  see declaration of 'std::vector<Music *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :             _Ty=Music *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:  '_music': is not a member of 'std::vector<Music *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:             _Ty=Music *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:         ]
+﻿  Content.cpp
   launchPad.cpp
-  Main.cpp
   Prime_Scene.cpp
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :  see declaration of 'std::vector<Music *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :             _Ty=Music *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         ]
 C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Prime_Scene.cpp(32,18): warning C4150:  deletion of pointer to incomplete type 'SDL_Renderer'; no destructor called
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Debug\libraries\SDL2-2.0.8\include\SDL_render.h(122): message :  see declaration of 'SDL_Renderer'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Prime_Scene.cpp(287,47): error C2228:  left of '.x' must have class/struct/union
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Prime_Scene.cpp(287,47): message :  type is 'SDL_Rect *'
   Scene.cpp
   Stage.cpp
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Debug\libraries\SDL2-2.0.8\include\SDL_render.h(122): message :  see declaration of 'SDL_Renderer'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:  'std::vector<Content *,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C2109:  subscript requires array or pointer type
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:  'void CAudio::LoadAudio(Content)': cannot convert argument 1 from '_Ty' to 'Content'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): message :  No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:  'GetTextureID': is not a member of 'std::vector<CTexture *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:             _Ty=CTexture *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :  see declaration of 'std::vector<CTexture *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :             _Ty=CTexture *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:  'GetContentID': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:  'GetTextureID': is not a member of 'std::vector<CTexture *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:             _Ty=CTexture *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :  see declaration of 'std::vector<CTexture *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :             _Ty=CTexture *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:  'GetContentRect': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:  'GetContentRect': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:  'GetContentRect': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:  'GetContentRect': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,186): error C2660:  'CTexture::render': function does not take 1 arguments
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.h(33,7): message :  see declaration of 'CTexture::render'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:  'return': cannot convert from 'std::vector<CTexture *,std::allocator<_Ty>> *' to 'CTexture *'
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:         with
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:         [
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:             _Ty=CTexture *
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Prime_Scene.cpp(287,47): message :  did you intend to use '->' instead?
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(76,60): error C2446:  '==': no conversion from 'const char [8]' to 'std::string *'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(76,51): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(109,7): error C2446:  '==': no conversion from 'const char [6]' to 'std::string *'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(109,43): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(109,7): error C2446:  '==': no conversion from 'const char [4]' to 'std::string *'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(109,89): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(109,95): warning C4554:  '|': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(141,89): error C2679:  binary '==': no operator found which takes a right-hand operand of type 'std::string' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\exception(281,24): message :  could be 'bool std::operator ==(const std::exception_ptr &,const std::exception_ptr &) noexcept' [found using argument-dependent lookup]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\exception(285,24): message :  or       'bool std::operator ==(std::nullptr_t,const std::exception_ptr &) noexcept' [found using argument-dependent lookup]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\exception(289,24): message :  or       'bool std::operator ==(const std::exception_ptr &,std::nullptr_t) noexcept' [found using argument-dependent lookup]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\system_error(216,24): message :  or       'bool std::operator ==(const std::error_code &,const std::error_code &) noexcept' [found using argument-dependent lookup]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\system_error(221,24): message :  or       'bool std::operator ==(const std::error_code &,const std::error_condition &) noexcept' [found using argument-dependent lookup]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\system_error(226,24): message :  or       'bool std::operator ==(const std::error_condition &,const std::error_code &) noexcept' [found using argument-dependent lookup]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\system_error(231,24): message :  or       'bool std::operator ==(const std::error_condition &,const std::error_condition &) noexcept' [found using argument-dependent lookup]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(4222,24): message :  or       'bool std::operator ==<char,std::char_traits<char>,std::allocator<char>>(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &,const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &) noexcept'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(141,89): message :  or       'built-in C++ operator==(std::string *, std::string *)'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(141,89): message :  while trying to match the argument list '(std::string *, std::string)'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(144,204): error C2660:  'CTexture::render': function does not take 1 arguments
   Texture.cpp
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.h(33,7): message :  see declaration of 'CTexture::render'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.cpp(16,65): error C2664:  'SDL_Rect::SDL_Rect(SDL_Rect &&)': cannot convert argument 1 from 'SDL_Rect *' to 'const SDL_Rect &'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.cpp(16,65): message :  Reason: cannot convert from 'SDL_Rect *' to 'const SDL_Rect'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.cpp(16,65): message :  No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.cpp(45,84): error C2660:  'IMG_LoadTexture': function does not take 1 arguments
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Debug\libraries\SDL2_image-2.0.3\include\SDL_image.h(103,39): message :  see declaration of 'IMG_LoadTexture'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.cpp(65,45): error C2679:  binary '=': no operator found which takes a right-hand operand of type 'std::string *' (or there is no acceptable conversion)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2654,19): message :  could be 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2654,19): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2654,19): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2654,19): message :             _Elem=char
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2654,19): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2650,19): message :  or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const _Elem *const )'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2650,19): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2650,19): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2650,19): message :             _Elem=char
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2650,19): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2635,19): message :  or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2541,19): message :  or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::initializer_list<_Elem>)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2541,19): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2541,19): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2541,19): message :             _Elem=char
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2541,19): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\VC\Tools\MSVC\14.22.27706\include\xstring(2439,19): message :  or       'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::operator =(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &&) noexcept(<expr>)'
   Generating Code...
-C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,10): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.cpp(65,45): message :  while trying to match the argument list '(std::string, std::string *)'
