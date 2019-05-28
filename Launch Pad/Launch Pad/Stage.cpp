@@ -10,6 +10,8 @@ Stage::Stage(CSDL_Setup* passed_setup, Database* passed_database)
 	pMainEvent = csdl_setup->getMainEvent();
 	pRenderer = csdl_setup->getRenderer();
 
+	stage_contents = new std::vector<Content*>;
+	stage_textures = new std::vector<CTexture*>;
 	LoadSceneBySceneName("prime_Scene");
 	AmountOfImages = 0;
 }
@@ -50,7 +52,7 @@ void Stage::SetContentsFromScene()
 {
 	//risky use try catch
 
-	stage_contents = *current_scene->GetSceneContents();
+	stage_contents = current_scene->GetSceneContents();
 	/*
 	if (stage_contents != *current_scene->GetSceneContents())
 	{
@@ -64,20 +66,20 @@ void Stage::CreateTextures()
 {
 	Content* create_temp = new Content;
 	//std::cout << stage_contents[0].GetContentType() << std::endl;
-   if (!(stage_contents.empty()))
+   if (!(stage_contents->empty()))
 	{
 	   //changed from contentcount to size() way better
-		for (unsigned int x = 0; x < stage_contents.size(); x++) 
+		for (unsigned int x = 0; x < stage_contents->size(); x++) 
 		{
-			if (stage_contents[x].GetContentType() == "texture") {
+			if (stage_contents->at[x]->GetContentType() == "texture") {
 				//GetSceneContents()->begin()->GetContentPath()
 				//use get content position to add to ->begin ex: begin +2
 				//used *stage_contents
-				Content content_arg = stage_contents[x];
+				Content* content_arg = stage_contents->at(x);
 
-				CTexture temp_ctexture(csdl_setup, content_arg);
+				CTexture* temp_ctexture = new CTexture(csdl_setup, content_arg);
 
-				stage_textures.push_back(temp_ctexture);
+				stage_textures->push_back(temp_ctexture);
 
 				std::cout << "Texture created" << std::endl;
 
@@ -114,13 +116,13 @@ void Stage::CreateTextures()
 
 void Stage::CreateAudio()
 {
-	if (!(stage_contents.empty()))
+	if (!(stage_contents->empty()))
 	{
-		for (unsigned int x = 0; x < stage_contents.size(); x++) 
+		for (unsigned int x = 0; x < stage_contents->size(); x++) 
 		{
-			if ((stage_contents[x].GetContentType() == "music") | (stage_contents[x].GetContentType() == "sfx")) //forgot to change type to "music" from "audio"
+			if ((stage_contents->at(x)->GetContentType() == "music") | (stage_contents->at(x)->GetContentType() == "sfx")) //forgot to change type to "music" from "audio"
 			{
-				stage_audio->LoadAudio(stage_contents[x]);
+				stage_audio->LoadAudio(stage_contents->at(x));
 				printf("Stage::LoadAudio Called\n");
 			}
 		}
@@ -140,7 +142,7 @@ void Stage::RenderScene()
 		{
 			//maybe call a scene method to render stuff
 			try {
-				if (stage_textures[i].GetTextureID() > "")
+				if (stage_textures[i].GetTextureID() != "")
 				{
 					//check it texture exists
 					for (unsigned int it = 0; it < stage_contents.size(); it++)
@@ -173,10 +175,16 @@ void Stage::RenderScene()
 
 CTexture* Stage::GetTextureObject(unsigned int passed_slot)
 {
+	if (passed_slot >= stage_textures.size())
+	{
 
+		passed_slot = passed_slot % stage_textures.size();
+
+	}
 	//only allows images to be called?
 	if (passed_slot < stage_textures.size())
 	{ 
+
 		return &stage_textures[passed_slot];
 		
 	}

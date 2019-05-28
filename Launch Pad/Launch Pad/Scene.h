@@ -16,9 +16,9 @@ public:
 	// make various scene object or make scene virual
 		
 	
-	virtual void AddContents(Content passed_Content) = 0;
+	virtual void AddContents(Content* passed_Content) = 0;
 
-	virtual std::vector<Content>* GetSceneContents() = 0;
+	virtual std::vector<Content*>* GetSceneContents() = 0;
 private:
 	//Content content_manager;
 	//std::vector<Content> contents;	

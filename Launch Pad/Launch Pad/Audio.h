@@ -44,8 +44,8 @@ public:
 	void PlayMusicByID(std::string passed_music_id);
 private:
 	//laod only one song?
-	std::vector<Music> music_list;
-	std::vector<SFX> sfx_list;
+	std::vector<Music*>* music_list;
+	std::vector<SFX*>* sfx_list;
 };
 //add needed to corresponding vector within Audio class
 

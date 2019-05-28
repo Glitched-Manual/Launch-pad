@@ -39,8 +39,8 @@ private:
 	int TextureObjectTracker;
 	int ContentObjectTracker;
 	int AmountOfImages;
-	std::vector<Content> stage_contents;
-	std::vector<CTexture> stage_textures;
+	std::vector<Content*>* stage_contents;
+	std::vector<CTexture*>* stage_textures;
 	CAudio* stage_audio;
 	Scene* current_scene;
 	CSDL_Setup* csdl_setup;

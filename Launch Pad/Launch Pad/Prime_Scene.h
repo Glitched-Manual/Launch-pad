@@ -12,9 +12,9 @@ public:
 	Prime_Scene(CSDL_Setup* passed_setup,Database* passed_database);
 	~Prime_Scene();
 	void SetContentValues();
-	void AddContents(Content passed_Content);
+	void AddContents(Content* passed_Content);
 	void LoadContentValuesByID(std::string passed_ID);
-	std::vector<Content>* GetSceneContents() { return &prime_contents; }
+	std::vector<Content*>* GetSceneContents() { return prime_contents; }
 	void clearTempContent();
 	void LoadManualImageContent();
 	void LoadGlassImageContent();
@@ -43,5 +43,5 @@ private:
 	bool databaseopen;
 	
 	//[position of content].place of vector eg begin
-	std::vector<Content> prime_contents;
+	std::vector<Content*>* prime_contents;
 };

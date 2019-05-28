@@ -11,7 +11,7 @@ class CTexture
 public:
 	//store texture within object
 
-	CTexture(CSDL_Setup* passed_setup, Content passed_content);
+	CTexture(CSDL_Setup* passed_setup, Content* passed_content);
 	~CTexture();
 		
 	//pass content data
@@ -37,10 +37,10 @@ public:
 private:
 	std::string textureID;
 	//changed to none-pointer
-	CSDL_Setup* csdl_setup = NULL;
-	Content texture_content;
-	SDL_Renderer* pRenderer = NULL;
-	SDL_Texture* texture = NULL;
-	SDL_Rect* texture_rect = NULL;
+	CSDL_Setup* csdl_setup ;
+	Content* texture_content;
+	SDL_Renderer* pRenderer;
+	SDL_Texture* texture;
+	SDL_Rect* texture_rect;
 };
 

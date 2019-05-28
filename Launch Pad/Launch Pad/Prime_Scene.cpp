@@ -10,7 +10,7 @@ Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup, Database* passed_database)
 	csdl_setup = passed_setup;
 	pMainEvent = csdl_setup->getMainEvent();
 	pRenderer = csdl_setup->getRenderer();
-	
+	prime_contents = new std::vector<Content*>;
 	std::cout << "Prime_Scene obj created" << std::endl;
 	//LoadContentValuesByID("manual");
 	//LoadContentValuesByID("glass");
@@ -27,6 +27,11 @@ Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup, Database* passed_database)
 
 Prime_Scene::~Prime_Scene()
 {
+	delete csdl_setup;
+	delete pMainEvent;
+	delete pRenderer;
+	delete PrimeDB;
+
 }
 //pure virtual for scene
 void Prime_Scene::SetContentValues()
@@ -52,9 +57,7 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 		std::vector<std::vector<std::string> > result = PrimeDB->query(setContentCall);
 		if (!(result.empty())) 
 		{
-
-
-			
+					   			
 			for (std::vector<std::vector<std::string> >::iterator it = result.begin(); it < result.end(); ++it)
 			{
 				std::vector<std::string> row = *it;
@@ -63,7 +66,7 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 				{
 					std::cout << "Column: " << PrimeDB->GetColumnList().at(count) <<std::endl;
 					std::cout << "Values: " << row.at(count) << std::endl;
-					//use content setting algorythm 
+					//use content setting algorithm 
 
 					column_name = PrimeDB->GetColumnList().at(count);
 
@@ -102,18 +105,18 @@ void Prime_Scene::LoadContentValuesByID(std::string passed_ID)
 			}
 		}
 		//clears column name list
-		prime_contents.push_back(*tempContent);
+		prime_contents->push_back(tempContent);
 		delete tempContent;
 		std::cout << "LoadContentValuesByID: loading complete" << std::endl;
 	
 }
 //pure virtual for scene
-void Prime_Scene::AddContents(Content passed_Content)
+void Prime_Scene::AddContents(Content* passed_Content)
 {
 
 	//needs work
 
-	prime_contents.push_back(passed_Content);
+	prime_contents->push_back(passed_Content);
 
 }
 /*
@@ -282,10 +285,10 @@ int Prime_Scene::SettingCallback(int argc, char **argv, char **azColName)
 	std::cout << tempContent->GetContentType() << std::endl;
 
 	std::cout << tempContent->GetContentRect().x << std::endl;
-	std::cout << "Prime Contents capacity = "<< prime_contents.capacity() << std::endl;
+	std::cout << "Prime Contents capacity = "<< prime_contents->capacity() << std::endl;
 	std::cout << "Content Pushing" << std::endl;
 	//fails here
-	AddContents(*tempContent);
+	AddContents(tempContent);
 	std::cout << "Content Pushed" << std::endl;
 	delete tempContent;
 	//create setting callback
@@ -394,7 +397,7 @@ void Prime_Scene::LoadManualImageContent()
 	temp_content->SetContentPath("Debug/resources/images/solo.jpg");
 	temp_content->SetContentType('t');
 	temp_content->SetContentRect(0, 0, 100, 100);
-	prime_contents.push_back(*temp_content);
+	prime_contents->push_back(temp_content);
 
 	std::cout << "Manual content pushed to prime contents" << std::endl;
 	delete temp_content;
@@ -408,7 +411,7 @@ void Prime_Scene::LoadGlassImageContent()
 	temp_content->SetContentPath("Debug/resources/images/glass.jpg");
 	temp_content->SetContentType('t');
 	temp_content->SetContentRect(20, 20, 100, 100);
-	prime_contents.push_back(*temp_content);
+	prime_contents->push_back(temp_content);
 
 	std::cout << "Glass content pushed to prime contents" << std::endl;
 	delete temp_content;
@@ -422,7 +425,7 @@ void Prime_Scene::LoadTestAudioContent()
 	temp_content->SetContentPath("Debug/resources/audio/Freeze Me.mp3");
 	temp_content->SetContentType("music");
 	temp_content->SetContentRect(0, 0, 0, 0);
-	prime_contents.push_back(*temp_content);
+	prime_contents->push_back(temp_content);
 
 	std::cout << "freeze-mus content pushed to prime contents" << std::endl;
 	delete temp_content;

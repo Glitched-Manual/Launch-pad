@@ -4,6 +4,8 @@
 
 CAudio::CAudio()
 {
+	 music_list = new std::vector<Music*>;
+	 sfx_list = new std::vector<SFX*>;
 }
 
 
@@ -11,30 +13,30 @@ CAudio::~CAudio()
 {
 }
 
-void CAudio::LoadAudio(Content passed_audio_Content)
+void CAudio::LoadAudio(Content* passed_audio_Content)
 {
 	
-	if (passed_audio_Content.GetContentType() == "music")
+	if (passed_audio_Content->GetContentType() == "music")
 	{
 		//if type == Music Load Music
 		LoadMusic(passed_audio_Content);
 		printf("Music loaded\n");
 	}
-	else if (passed_audio_Content.GetContentType() == "sfx")
+	else if (passed_audio_Content->GetContentType() == "sfx")
 	{
 		//else if Content type == SFX load SFX
 		LoadSFX(passed_audio_Content);
 		printf("SFX loaded\n");
 	}
-	std::cout << "LoadAudio called id " << passed_audio_Content.GetContentID() << " passed" << std::endl;
+	std::cout << "LoadAudio called id " << passed_audio_Content->GetContentID() << " passed" << std::endl;
 }
 
-void CAudio::LoadMusic(Content passed_music_Content)
+void CAudio::LoadMusic(Content* passed_music_Content)
 {
 	// load Mix_Music struct
 	Mix_Music* music;
-	std::string music_path = passed_music_Content.GetContentPath();
-	std::string string_id = passed_music_Content.GetContentID();
+	std::string music_path = passed_music_Content->GetContentPath();
+	std::string string_id = passed_music_Content->GetContentID();
 	int ssize = (string_id.size() + 1);
 	char* music_id_string = new char;
 		
@@ -47,9 +49,9 @@ void CAudio::LoadMusic(Content passed_music_Content)
 	music_struct->_music = music;
 	music_struct->music_id = music_id_string;
 	// Push Loaded Music struct to Music vector
-	music_list.push_back(*music_struct);
+	music_list->push_back(music_struct);
 	printf("Song \"%s\" was pushed to the song list", music_struct->music_id);
-	std::cout << "Song id "<< passed_music_Content.GetContentID() <<" was pushed to the song list" << std::endl;
+	std::cout << "Song id "<< passed_music_Content->GetContentID() <<" was pushed to the song list" << std::endl;
 	//delete all temperary values
 	//Mix_FreeMusic(music);
 	

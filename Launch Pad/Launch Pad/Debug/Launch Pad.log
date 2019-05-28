@@ -1,8 +1,132 @@
 ﻿  Audio.cpp
-  Main.cpp
-  Stage.cpp
-  Texture.cpp
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:  '=': cannot convert from 'std::vector<Music *,std::allocator<_Ty>> **' to 'std::vector<Music *,std::allocator<_Ty>> *'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:             _Ty=Music *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,40): error C2440:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(7,16): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:  '=': cannot convert from 'std::vector<SFX *,std::allocator<_Ty>> **' to 'std::vector<SFX *,std::allocator<_Ty>> *'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:             _Ty=SFX *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,36): error C2440:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(8,14): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:  'music_id': is not a member of 'std::vector<Music *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:             _Ty=Music *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(107,8): error C2039:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :  see declaration of 'std::vector<Music *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :             _Ty=Music *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:  '_music': is not a member of 'std::vector<Music *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:             _Ty=Music *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.cpp(112,44): error C2039:         ]
   launchPad.cpp
+  Main.cpp
+  Prime_Scene.cpp
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :  see declaration of 'std::vector<Music *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :             _Ty=Music *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Audio.h(47): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Prime_Scene.cpp(32,18): warning C4150:  deletion of pointer to incomplete type 'SDL_Renderer'; no destructor called
+  Scene.cpp
+  Stage.cpp
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Debug\libraries\SDL2-2.0.8\include\SDL_render.h(122): message :  see declaration of 'SDL_Renderer'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:  'std::vector<Content *,std::allocator<_Ty>>::at': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C3867:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(74,7): error C2109:  subscript requires array or pointer type
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:  'void CAudio::LoadAudio(Content)': cannot convert argument 1 from '_Ty' to 'Content'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): error C2664:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(125,49): message :  No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:  'GetTextureID': is not a member of 'std::vector<CTexture *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:             _Ty=CTexture *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(145,8): error C2039:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :  see declaration of 'std::vector<CTexture *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :             _Ty=CTexture *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:  'GetContentID': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:  'GetTextureID': is not a member of 'std::vector<CTexture *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:             _Ty=CTexture *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(151,10): error C2039:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :  see declaration of 'std::vector<CTexture *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :             _Ty=CTexture *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.h(43): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:  'GetContentRect': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,65): error C2039:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:  'GetContentRect': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,104): error C2039:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:  'GetContentRect': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,143): error C2039:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:  'GetContentRect': is not a member of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,182): error C2039:         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :  see declaration of 'std::vector<Content *,std::allocator<_Ty>>'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :             _Ty=Content *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Scene.h(21): message :         ]
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(154,186): error C2660:  'CTexture::render': function does not take 1 arguments
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Texture.h(33,7): message :  see declaration of 'CTexture::render'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:  'return': cannot convert from 'std::vector<CTexture *,std::allocator<_Ty>> *' to 'CTexture *'
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:         with
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:         [
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:             _Ty=CTexture *
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,38): error C2440:         ]
+  Texture.cpp
   Generating Code...
-c:\users\kiefer\documents\github\launch-pad\launch pad\launch pad\stage.cpp(185): warning C4715: 'Stage::GetTextureObject': not all control paths return a value
-  Launch Pad.vcxproj -> C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Debug\Launch Pad.exe
+C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Launch Pad\Stage.cpp(188,10): message :  Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast

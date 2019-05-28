@@ -4,23 +4,29 @@
 //(SDL_Renderer* passed_renderer, std::string FilePath, int x, int y, int w, int h) 
 
 //use content object get all info from content object except the passed renderer
-CTexture::CTexture(CSDL_Setup* passed_setup,Content passed_content)
+CTexture::CTexture(CSDL_Setup* passed_setup,Content* passed_content)
 {
+
 	csdl_setup = passed_setup;
 
 	//create texture from content data
 	texture_content = passed_content;
     //
 	pRenderer = csdl_setup->getRenderer();
-	texture_rect = new SDL_Rect (texture_content.GetContentRect());
+	texture_rect = new SDL_Rect (texture_content->GetContentRect());
 	SetTextureID();
 	LoadContentTexture();
 	
 }
 
 
+
+
+
+
 CTexture::~CTexture()
 {
+
 }
 
 void CTexture::AddTexture()
@@ -36,7 +42,7 @@ std::string CTexture::GetTextureID()
 
 void CTexture::LoadContentTexture() {
 
-	texture = IMG_LoadTexture((*this).GetRenderer(), texture_content.GetContentPath().c_str());
+	texture = IMG_LoadTexture(GetRenderer(), texture_content->GetContentPath().c_str());
 
 	if (texture == NULL) 
 	{
@@ -56,7 +62,7 @@ void CTexture::LoadContentTextureByID(){
 void CTexture::SetTextureID()
 {
 
-	textureID = texture_content.GetContentID();
+	textureID = texture_content->GetContentID();
 
 }
 
@@ -75,16 +81,17 @@ void CTexture::render(int x, int y, int w, int h, SDL_Rect* clip, double angle, 
 	}
 	//clip may be used for animating
 	//Set clip rendering dimensions
-	if (clip != NULL)
+if (clip != NULL)
 	{
 		renderQuad.w = clip->w;
 		renderQuad.h = clip->h;
 	}
-
+	//clip and center crashing code with unreadable values
 	//Render to screen
 
 	//pass texture
-	SDL_RenderCopyEx(GetRenderer(), GetTexture(), clip, &renderQuad, angle, center, flip); //exception thrown here
+	//SDL_RenderCopyEx(GetRenderer(), GetTexture(), clip, &renderQuad, angle, center, flip); //exception thrown here
+	SDL_RenderCopy(GetRenderer(), GetTexture(), clip, &renderQuad);
 }
 
 void CTexture::RenderTextureByID(std::string passed_string)
