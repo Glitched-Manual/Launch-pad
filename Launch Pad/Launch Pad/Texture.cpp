@@ -82,9 +82,20 @@ void CTexture::render(int x, int y, int w, int h, SDL_Rect* clip, double angle, 
 	}
 
 	//Render to screen
+	if(GetRenderer() == NULL)
+	{
+	
+		std::cout << "Renderer = NULL" << std::endl;
+	}
 
+	if (GetTexture() == NULL)
+	{
+
+		std::cout << "Texture() = NULL" << std::endl;
+	}
 	//pass texture
-	SDL_RenderCopyEx(GetRenderer(), GetTexture(), clip, &renderQuad, angle, center, flip); //exception thrown here
+	SDL_RenderCopyEx(GetRenderer(), GetTexture(),&renderQuad,clip, angle, center, flip); //exception thrown here
+	//SDL_RenderCopy(GetRenderer(), GetTexture(),NULL, NULL);
 }
 
 void CTexture::RenderTextureByID(std::string passed_string)
