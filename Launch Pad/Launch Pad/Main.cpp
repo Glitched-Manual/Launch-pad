@@ -41,37 +41,56 @@ void CMain::SoftwareLoop()
 
 	GetMainStage()->CreateTextures(); 
 	GetMainStage()->CreateAudio();
-	while (!quit && GetMainEvent()->type != SDL_QUIT) {
+	while (!quit && GetMainEvent()->type != SDL_QUIT)
+	{
 
 		csdl_setup->Start();
-		
+
 		//main_stage->TestContent();
 
 		main_stage->RenderScene();
 
 
 		//render scene and add code for actions
-							   			
+
 		//SDL_GetMouseState(&MouseX, &MouseY);
 
 		//event check()
-		if ((GetMainEvent()->type == 768)&(buttonReleased)) {
+
+		if ((GetMainEvent()->key.keysym.sym == 'k') & (buttonReleased)) {
 			buttonReleased = false;
 			std::cout << "buttonPressed" << std::endl;
 			main_stage->GetStageAudio()->PlayMusicByID("freeze-mus");
-			std::cout << GetMainEvent()->type << std::endl;
+			std::cout << GetMainEvent()->key.keysym.sym << std::endl;
+
 		}
-		if ((GetMainEvent()->type == SDL_KEYUP)&(buttonReleased == false))
+		// used SDL_KEYUP when SDL_KEYDOWN was needed playback paused an started super fast
+		else if ((GetMainEvent()->type == SDL_KEYDOWN) & (buttonReleased == false))
 		{
 			buttonReleased = true;
 			std::cout << "buttonReleased" << std::endl;
 		}
+
+
+		/*
+			switch (GetMainEvent()->key.keysym.sym)
+			{
+			case 'k':
+				buttonReleased = false;
+				std::cout << "buttonPressed" << std::endl;
+				main_stage->GetStageAudio()->PlayMusicByID("freeze-mus");
+				std::cout << GetMainEvent()->key.keysym.sym << std::endl;
+				break;
+			default:
+			}
+		*/
+
 		//Stage->DrawBack();
 
 
 		//Stage->DrawFront();
 		//Stage->Update();
-		
+
 		//std::cout << GetMainEvent()->type << std::endl;
 		csdl_setup->Finish();
 	}
