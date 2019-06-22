@@ -65,14 +65,16 @@ void CTexture::render(int x, int y, int w, int h, SDL_Rect* clip, double angle, 
 	SDL_Rect renderQuad;
 	//Set rendering space and render to screen
 	//get width and Hieght for context
-	if ((w == NULL) | (h == NULL)) 
+	
+	if ((w == 0) || (h == 0)) 
 	{
 		renderQuad = { x, y, 100, 100 };
 	}
 	else
 	{
 	    renderQuad = { x, y, w, h };
-	}
+		}
+	
 	//clip may be used for animating
 	//Set clip rendering dimensions
 	if (clip != NULL)
@@ -80,7 +82,8 @@ void CTexture::render(int x, int y, int w, int h, SDL_Rect* clip, double angle, 
 		renderQuad.w = clip->w;
 		renderQuad.h = clip->h;
 	}
-
+	//std::cout << "clip.w = " << clip->w << std::endl;
+	//std::cout << "clip.w = " << clip->w << std::endl;
 	//Render to screen
 	if(GetRenderer() == NULL)
 	{
@@ -93,9 +96,9 @@ void CTexture::render(int x, int y, int w, int h, SDL_Rect* clip, double angle, 
 
 		std::cout << "Texture() = NULL" << std::endl;
 	}
-	//pass texture
-	SDL_RenderCopyEx(GetRenderer(), GetTexture(),&renderQuad,clip, angle, center, flip); //exception thrown here
-	//SDL_RenderCopy(GetRenderer(), GetTexture(),NULL, NULL);
+	//pass texture  // switched clip and renderquad by mistake
+	SDL_RenderCopyEx(GetRenderer(), GetTexture(),clip,&renderQuad, angle, center, flip); //exception thrown here
+	//SDL_RenderCopy(GetRenderer(), GetTexture(), clip, &renderQuad);
 }
 
 void CTexture::RenderTextureByID(std::string passed_string)
