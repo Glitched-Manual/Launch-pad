@@ -1,0 +1,29 @@
+INSERT INTO PrimeContent
+VALUES("manual-img","texture","Debug/resources/images/solo.jpg","x = 0; y = 0; w = 100; h= 100;");
+
+INSERT INTO PrimeContent
+VALUES("glass-img","texture",
+"Debug/resources/images/glass.jpg",
+"x = 40; y = 20; w = 100; h= 100;");
+
+INSERT INTO PrimeContent
+VALUES("chesh-img","texture",
+"Debug/resources/images/chesh.jpg",
+"x = 0; y = 70; w = 100; h= 100;");
+
+
+INSERT INTO PrimeContent
+VALUES("freeze-mus","music",
+"Debug/resources/audio/Freeze Me.mp3",
+"null");
+
+INSERT INTO PrimeContent
+VALUES("lose-mus","music",
+"Debug/resources/audio/Lose Yourself.mp3",
+"null");
+
+
+INSERT INTO PrimeContent
+VALUES("ich-mus","music",
+"Debug/resources/audio/Ich Will.mp3",
+"null");

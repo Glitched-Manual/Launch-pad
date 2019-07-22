@@ -16,7 +16,7 @@ Prime_Scene::Prime_Scene(CSDL_Setup* passed_setup, Database* passed_database)
 	//LoadContentValuesByID("glass");
 
      // LoadContentValuesByID("manual-img");
-	LoadContentPackage("testScene");
+	LoadContentPackage("testSceneTres");
 	std::cout << "package loaded" << std::endl;
 		//LoadFromDatabase("manual-img");
 	//LoadTestAudioContent();

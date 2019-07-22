@@ -41,6 +41,8 @@ void CMain::SoftwareLoop()
 
 	GetMainStage()->CreateTextures(); 
 	GetMainStage()->CreateAudio();
+	
+
 	while (!quit && GetMainEvent()->type != SDL_QUIT)
 	{
 
@@ -56,22 +58,31 @@ void CMain::SoftwareLoop()
 		//SDL_GetMouseState(&MouseX, &MouseY);
 
 		//event check()
-
-		if ((GetMainEvent()->key.keysym.sym == 'k') & (buttonReleased)) {
-			buttonReleased = false;
-			std::cout << "buttonPressed" << std::endl;
-			main_stage->GetStageAudio()->PlayMusicByID("freeze-mus");
-			std::cout << GetMainEvent()->key.keysym.sym << std::endl;
-
-		}
-		// used SDL_KEYUP when SDL_KEYDOWN was needed playback paused an started super fast
-		else if ((GetMainEvent()->type == SDL_KEYDOWN) & (buttonReleased == false))
+		while (SDL_PollEvent(GetMainEvent()) != 0)
 		{
-			buttonReleased = true;
-			std::cout << "buttonReleased" << std::endl;
+			if ((GetMainEvent()->key.keysym.sym == 'k') & (buttonReleased)) {
+				buttonReleased = false;
+				std::cout << "buttonPressed" << std::endl;
+				if (!(main_stage->GetStageAudio()->GetMusicList().empty()))
+				{  //
+					main_stage->GetStageAudio()->PlayMusicByID(main_stage->GetStageAudio()->GetMusicList()[0].music_id);
+
+					std::cout << GetMainEvent()->key.keysym.sym << std::endl;
+				}
+
+
+			}
+			// used SDL_KEYUP when SDL_KEYDOWN was needed playback paused an started super fast
+			else if ((GetMainEvent()->type == SDL_KEYDOWN) & (buttonReleased == false))
+			{
+				buttonReleased = true;
+				std::cout << "buttonReleased" << std::endl;
+			}
+			else 
+			{
+				std::cout << GetMainEvent()->key.keysym.sym << " Pressed" << std::endl;
+			}
 		}
-
-
 		/*
 			switch (GetMainEvent()->key.keysym.sym)
 			{

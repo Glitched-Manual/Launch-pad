@@ -17,6 +17,9 @@ ContentPath VARCHAR(40),
 ContentRect varchar(20)
 );
 --end of create table script
+
+
+
 /*
 
 	temp_content->SetContentID("manual-img");

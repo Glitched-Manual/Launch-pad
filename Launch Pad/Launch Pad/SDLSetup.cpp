@@ -49,7 +49,7 @@ bool CSDL_Setup::createRenderer()
 
 bool CSDL_Setup::init()
 {
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0)
 	{
 		printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
 		InitSuccess = false;
@@ -112,7 +112,7 @@ bool CSDL_Setup::init()
 
 void CSDL_Setup::Start()
 {
-	SDL_PollEvent(pMainEvent);
+	
 	SDL_RenderClear(pRenderer);
 }
 

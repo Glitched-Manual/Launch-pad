@@ -42,6 +42,8 @@ public:
 	//play music
 
 	void PlayMusicByID(std::string passed_music_id);
+
+	const std::vector<Music> GetMusicList() { return music_list; }
 private:
 	//laod only one song?
 	std::vector<Music> music_list;

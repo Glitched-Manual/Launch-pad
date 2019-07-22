@@ -49,7 +49,7 @@ void CAudio::LoadMusic(Content passed_music_Content)
 	// Push Loaded Music struct to Music vector
 	music_list.push_back(*music_struct);
 	printf("Song \"%s\" was pushed to the song list", music_struct->music_id);
-	std::cout << "Song id "<< passed_music_Content.GetContentID() <<" was pushed to the song list" << std::endl;
+	//std::cout << "Song id "<< passed_music_Content.GetContentID() <<" was pushed to the song list" << std::endl;
 	//delete all temperary values
 	//Mix_FreeMusic(music);
 	
@@ -99,9 +99,11 @@ void CAudio::PlayMusicByID(std::string passed_music_id)
 			printf("Mix_PauseMusic called\n");
 		}
 		else { //find song by ID then play it
-
+			
 			for (std::vector<Music>::iterator vi = music_list.begin(); vi < music_list.end(); vi++)
 			{
+				
+
 				if (music_list[beat].music_id == passed_music_id)
 				{
 					// do checks before getting this far? -done
@@ -116,7 +118,14 @@ void CAudio::PlayMusicByID(std::string passed_music_id)
 			}
 			if (!(exists))
 			{
+				
 				printf("CAudio PlayMusicByID error: could not play song by id\n");
+
+				for (auto m: music_list)		
+				{
+					std::cout << "song id " << m.music_id << " can be played" << std::endl;
+					std::cout << "song id " << passed_music_id << " was  selected" << std::endl;
+				}
 			}
 		}
 	}
@@ -126,3 +135,4 @@ void CAudio::PlayMusicByID(std::string passed_music_id)
 	}
 	printf("PlayMusicByID called\n");
 }
+
