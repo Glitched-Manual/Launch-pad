@@ -137,6 +137,35 @@ void CMain::SoftwareLoop()
 				 {
 					 std::cout << " \"DPAD_RIGHT\" was pressed!" << std::endl;
 				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_GUIDE)
+				 {
+					 std::cout << " \"GUIDE\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_START)
+				 {
+					 std::cout << " \"START\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_LEFTSHOULDER)
+				 {
+					 std::cout << " \"LEFTSHOULDER\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_RIGHTSHOULDER)
+				 {
+					 std::cout << " \"RIGHTSHOULDER\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_BACK)
+				 {
+					 std::cout << " \"BUTTON_BACK\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_LEFTSTICK)
+				 {
+					 std::cout << " \"LEFTSTICK\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_RIGHTSTICK)
+				 {
+					 std::cout << " \"RIGHTSTICK\" was pressed!" << std::endl;
+				 }
+
 			}
 						// used SDL_KEYUP when SDL_KEYDOWN was needed playback paused an started super fast
 			else if ((GetMainEvent()->type == SDL_KEYDOWN) & (buttonReleased == false))
