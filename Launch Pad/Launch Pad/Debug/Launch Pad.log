@@ -1,1 +1,2 @@
-﻿LINK : fatal error LNK1104: cannot open file 'C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Debug\Launch Pad.exe'
+﻿  Main.cpp
+  Launch Pad.vcxproj -> C:\Users\Kiefer\Documents\GitHub\Launch-pad\Launch Pad\Debug\Launch Pad.exe

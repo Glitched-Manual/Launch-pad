@@ -78,8 +78,65 @@ void CMain::SoftwareLoop()
 			//SDL_GameController events
 			else if (GetMainEvent()->type == SDL_CONTROLLERBUTTONDOWN)
 			{
-				std::cout << "Game controller button "<< GetMainEvent()->cbutton.button << " was pressed" << std::endl;
+				//std::cout << "Game controller button "<< GetMainEvent()->cbutton.button << " was pressed" << std::endl;
 
+				 std::cout << "Game controller button " << SDL_GameControllerGetButton(csdl_setup->GetGameController(),*csdl_setup->GetGameControllerButton()) << " was pressed" << std::endl;
+				 std::cout << "Game controller Button test 2 " << *csdl_setup->GetGameControllerButton() << " was pressed" << std::endl;
+				 std::cout << "Game controller button test 3 " << GetMainEvent()->cbutton.button << " was pressed" << std::endl;
+				 std::cout << "Game controller button test 4 " << SDL_CONTROLLER_BUTTON_A << " was pressed" << std::endl;
+				 if (GetMainEvent()->type == SDL_CONTROLLER_BUTTON_A)
+				 {
+					// std::cout << " \"A\" was pressed!" << std::endl;
+				 }
+				 				 
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_A)
+				 {
+					 std::cout << " \"B\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_B)
+				 {
+					 std::cout << " \"A\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_X)
+				 {
+					 std::cout << " \"Y\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_Y)
+				 {
+					 std::cout << " \"X\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_AXIS_LEFTX)
+				 {
+					 std::cout << " \"AXIS_LEFTX\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_AXIS_LEFTY)
+				 {
+					 std::cout << " \"AXIS_LEFTX\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_AXIS_RIGHTX)
+				 {
+					 std::cout << " \"AXIS_LEFTX\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_AXIS_RIGHTY)
+				 {
+					 std::cout << " \"AXIS_LEFTX\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_DPAD_UP)
+				 {
+					 std::cout << " \"DPAD_UP\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_DPAD_DOWN)
+				 {
+					 std::cout << " \"DPAD_DOW\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_DPAD_LEFT)
+				 {
+					 std::cout << " \"DPAD_LEFT\" was pressed!" << std::endl;
+				 }
+				 else if (GetMainEvent()->cbutton.button == SDL_CONTROLLER_BUTTON_DPAD_RIGHT)
+				 {
+					 std::cout << " \"DPAD_RIGHT\" was pressed!" << std::endl;
+				 }
 			}
 						// used SDL_KEYUP when SDL_KEYDOWN was needed playback paused an started super fast
 			else if ((GetMainEvent()->type == SDL_KEYDOWN) & (buttonReleased == false))
