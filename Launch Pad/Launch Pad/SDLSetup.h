@@ -10,10 +10,13 @@ public:
 
 	bool createWindow();
 	bool createRenderer();
+	bool LoadGameController();
 
 	SDL_Window* getWindow() { return pWindow; }
 	SDL_Renderer* getRenderer() { return pRenderer; }
 	SDL_Event* getMainEvent() { return pMainEvent; }
+	SDL_GameController* GetGameController() { return csdl_GameController; }
+	SDL_GameControllerButton* GetGameControllerButton(){return csdl_GameControllerButton;}
 
 	void clearWindow() { pWindow = NULL; }
 	void clearRenderer() { pRenderer = NULL; }
@@ -28,6 +31,10 @@ private:
 	SDL_Window* pWindow;
 	SDL_Renderer* pRenderer;
 	SDL_Event* pMainEvent;
+	SDL_GameController* csdl_GameController;
+	SDL_GameControllerButton* csdl_GameControllerButton;
+	
+
 	bool InitSuccess = true;
 
 	//Screen dimensions

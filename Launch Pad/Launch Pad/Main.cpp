@@ -42,6 +42,9 @@ void CMain::SoftwareLoop()
 	GetMainStage()->CreateTextures(); 
 	GetMainStage()->CreateAudio();
 	
+	char* gameControllerMapping;
+	gameControllerMapping = SDL_GameControllerMapping(csdl_setup->GetGameController());
+	std::cout << "Controller mapping is " << gameControllerMapping << std::endl;
 
 	while (!quit && GetMainEvent()->type != SDL_QUIT)
 	{
@@ -56,7 +59,7 @@ void CMain::SoftwareLoop()
 		//render scene and add code for actions
 
 		//SDL_GetMouseState(&MouseX, &MouseY);
-
+	
 		//event check()
 		while (SDL_PollEvent(GetMainEvent()) != 0)
 		{
@@ -72,7 +75,13 @@ void CMain::SoftwareLoop()
 
 
 			}
-			// used SDL_KEYUP when SDL_KEYDOWN was needed playback paused an started super fast
+			//SDL_GameController events
+			else if (GetMainEvent()->type == SDL_CONTROLLERBUTTONDOWN)
+			{
+				std::cout << "Game controller button "<< GetMainEvent()->cbutton.button << " was pressed" << std::endl;
+
+			}
+						// used SDL_KEYUP when SDL_KEYDOWN was needed playback paused an started super fast
 			else if ((GetMainEvent()->type == SDL_KEYDOWN) & (buttonReleased == false))
 			{
 				buttonReleased = true;
@@ -81,6 +90,7 @@ void CMain::SoftwareLoop()
 			else 
 			{
 				std::cout << GetMainEvent()->key.keysym.sym << " Pressed" << std::endl;
+				
 			}
 		}
 		/*

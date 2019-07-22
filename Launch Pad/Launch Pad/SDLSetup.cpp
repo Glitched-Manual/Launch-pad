@@ -47,9 +47,34 @@ bool CSDL_Setup::createRenderer()
 	return true;
 }
 
+bool CSDL_Setup::LoadGameController()
+{
+	csdl_GameController = NULL;
+	//Load joystick
+	csdl_GameController = SDL_GameControllerOpen(0);
+	if (csdl_GameController == NULL)
+	{
+		printf("Warning: Unable to open game controller! SDL Error: %s\n", SDL_GetError());
+		return false;
+	}
+	else 
+	{
+		if(SDL_IsGameController(0))
+		{
+			csdl_GameControllerButton = new SDL_GameControllerButton;
+			std::cout << "The controller was reconized" << std::endl;
+		}
+		else 
+		{
+			printf("LoadGameController Warning: Controller was not reconized! SDL Error: %s\n", SDL_GetError());
+		}
+	}
+	return true;
+}
+
 bool CSDL_Setup::init()
 {
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMECONTROLLER) < 0)
 	{
 		printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
 		InitSuccess = false;
@@ -103,7 +128,22 @@ bool CSDL_Setup::init()
 					printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
 					InitSuccess = false;
 				}
+				//Check for joysticks
+				if (SDL_NumJoysticks() < 1)
+				{
+					printf("Warning: No joysticks connected!\n");
+				}
+				else
+				{
+					if (LoadGameController())
+					{
 
+					}
+					else
+					{
+						printf("SDLSetup Warning: Unable to Load game controller! SDL Error: %s\n", SDL_GetError());
+					}
+				}
 			}
 		}
 	}
@@ -126,6 +166,12 @@ void CSDL_Setup::Finish()
 void CSDL_Setup::endSDL()
 {
 
+	//Close game controller
+	if (csdl_GameController != NULL)
+	{
+		SDL_GameControllerClose(csdl_GameController);
+		csdl_GameController = NULL;
+	}
 	//Quit SDL subsystems
 	Mix_Quit();
 	TTF_Quit();
